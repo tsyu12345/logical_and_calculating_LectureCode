@@ -1,12 +1,27 @@
 \documentclass[dvipdfmx]{jsarticle}
+\usepackage[T1]{fontenc}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{lmodern}
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{nccmath}
+\usepackage{amsthm}
+\usepackage{multirow}
 \usepackage[dvipdfmx]{graphicx}
+\usepackage{wrapfig}
+\usepackage{here}
+\usepackage{float}
+\usepackage{ascmac}
+\usepackage{url}
 
 \def\NO{02}
 \def\LECTURENAME{論理と計算}
 \begin{document}
 \title{\LECTURENAME{}：第\NO{}回演習問題}
 
-\author{5499000 日大太郎}
+\author{5419045 高林秀}
 
 \date{}
 \maketitle
@@ -24,20 +39,27 @@
 
   \begin{enumerate}
   \item $p \land q \land r \lor s$
-    
+
   \item $p\Leftrightarrow q\lor r$
-    
+
   \item $\neg p \lor q \land r \Rightarrow s$
-    
+
   \end{enumerate}
+  \paragraph{解答}
+  \begin{enumerate}
+    \item $(p \wedge q \wedge r) \vee (s)$:選言文
+    \item $(p) \Leftrightarrow (q \vee r)$:同値文
+    \item $((\ulcorner p \vee q) \wedge r) \Rightarrow (s)$:含意文
+  \end{enumerate}
+
 
 \item 以下の各文同士が等価であるか否かを，真理値表を用いて示しなさい（真理値表を書きましょう）．
   \begin{enumerate}
   \item
     命題文$\alpha\Leftrightarrow\beta$と
     命題文$(\alpha\Rightarrow\beta)\land (\beta\Rightarrow\alpha)$
-  
-  \item 
+
+  \item
     命題文$\alpha\Leftrightarrow\beta$と
     命題文
     $\neg((\alpha\Rightarrow\beta)\Rightarrow\neg(\beta\Rightarrow\alpha))$
@@ -47,12 +69,24 @@
     命題文
     $\neg( \neg(\neg\alpha\lor\beta)\lor\neg(\neg\beta\lor\alpha) )$
   \end{enumerate}
+  \paragraph{解答}
+  \begin{enumerate}
+    \item 等価
+    \item 等価
+    \item 等価
+  \end{enumerate}
+  真理値表は下図
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.1]{IMG_4934.JPG}
+  \end{figure}
+
 
 \item
   $(p\lor(\neg q\land r))\Rightarrow s$を選言標準形に変換しなさい（変形の過程を示すこと）．
 
-  
-  
+
+
 \item
   講義資料におけるWumpus Worldの知識ベース
   $R1 \land R2 \land R3 \land R4 \land R5$のモデルを求め，
