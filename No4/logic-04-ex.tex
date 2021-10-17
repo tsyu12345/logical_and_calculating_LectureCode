@@ -1,0 +1,53 @@
+\documentclass[dvipdfmx]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+
+\def\NO{04}
+\def\LECTURENAME{論理と計算}
+\begin{document}
+\title{\LECTURENAME{}：第\NO{}回演習問題}
+
+\author{5499000 日大太郎}
+
+\date{}
+\maketitle
+
+\begin{itemize}
+\item Latexを用いて作成し，PDF形式で提出してください
+\end{itemize}
+
+
+\vspace*{\baselineskip}
+
+\begin{enumerate}\setlength{\itemsep}{\baselineskip}
+
+\item SAT問題とは何か，一言で端的に説明しなさい
+
+\item SATとして定式化できる問題の具体例と，その問題におけるSAT符号化の指針を示しなさい
+  （※「簡単に調査してください」ということです）
+  
+\item 節集合$\{(x_1\lor x_2), (\neg x_2 \lor \neg x_3\lor  \neg x_4), (x_1\lor x_4), (\neg x_2\lor x_3\lor \neg x_4)\}$の
+  充足可能性判定を対象とした場合のDPLLの動作過程を示しなさい．
+
+  
+\item SATソルバーclaspを用い，以下の節集合に対する充足可能性を判定しなさい
+（claspへの入力ファイルと実行方法，実行結果を示してください）
+  
+\[
+\{(x_1\lor x_2), (\neg x_2 \lor \neg x_3\lor  \neg x_4), (x_1\lor x_4), (\neg x_2\lor x_3\lor \neg x_4)\}
+\]
+  
+\item SATソルバーclaspを用い，以下の関係が成り立つことを示しなさい
+（claspへの入力ファイルと実行方法，実行結果を示してください）
+  \[
+  \left\{ B_{11}\Leftrightarrow (P_{12}\lor P_{21}),~\neg B_{11}  \right\}
+  \models
+  \neg P_{12}\land \neg P_{21}
+  \]
+
+  ※SATソルバーへ入力できる形式に変形しましょう
+
+
+\item 質問・コメント等がありましたらご記入ください（採点対象外です）
+  
+\end{enumerate}
+\end{document}
