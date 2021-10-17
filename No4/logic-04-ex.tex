@@ -1,12 +1,27 @@
 \documentclass[dvipdfmx]{jsarticle}
+\usepackage[T1]{fontenc}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{lmodern}
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{nccmath}
+\usepackage{amsthm}
+\usepackage{multirow}
 \usepackage[dvipdfmx]{graphicx}
+\usepackage{wrapfig}
+\usepackage{here}
+\usepackage{float}
+\usepackage{ascmac}
+\usepackage{url}
 
 \def\NO{04}
 \def\LECTURENAME{論理と計算}
 \begin{document}
 \title{\LECTURENAME{}：第\NO{}回演習問題}
 
-\author{5499000 日大太郎}
+\author{5419045 高林秀}
 
 \date{}
 \maketitle
@@ -21,21 +36,71 @@
 \begin{enumerate}\setlength{\itemsep}{\baselineskip}
 
 \item SAT問題とは何か，一言で端的に説明しなさい
+\paragraph{解答}\par
+モデルが存在するか否か、すなわち命題論理式において、リテラルの真理値を定めることによって全体の論理式を真にできるかという問題。
 
 \item SATとして定式化できる問題の具体例と，その問題におけるSAT符号化の指針を示しなさい
   （※「簡単に調査してください」ということです）
-  
+\paragraph{解答}\par
+
+
+
 \item 節集合$\{(x_1\lor x_2), (\neg x_2 \lor \neg x_3\lor  \neg x_4), (x_1\lor x_4), (\neg x_2\lor x_3\lor \neg x_4)\}$の
   充足可能性判定を対象とした場合のDPLLの動作過程を示しなさい．
+\paragraph{解答}
 
-  
+
+
+
 \item SATソルバーclaspを用い，以下の節集合に対する充足可能性を判定しなさい
 （claspへの入力ファイルと実行方法，実行結果を示してください）
-  
+
 \[
 \{(x_1\lor x_2), (\neg x_2 \lor \neg x_3\lor  \neg x_4), (x_1\lor x_4), (\neg x_2\lor x_3\lor \neg x_4)\}
 \]
-  
+\paragraph{解答}\par
+\begin{itemize}
+  \item 入力ファイル q4.cnf
+  \begin{verbatim}
+    p cnf 4 4
+    1 2 0
+    -2 -3 -4 0
+    1 4 0
+    -2 3 -4 0
+  \end{verbatim}
+  \item 実行方法:\url{https://github.com/potassco/clasp/releases}よりバイナリファイルをダウンロードし、以下コマンドを実行する。
+  \begin{verbatim}
+    clasp-3.3.2/clasp-3.3.2-x86_64-linux 0 q4.cnf
+  \end{verbatim}
+  \item 実行結果
+  \begin{verbatim}
+    c clasp version 3.3.2
+    c Reading from q4.cnf
+    c Solving...
+    c Answer: 1
+    v 1 -2 -3 4 0
+    c Answer: 2
+    v 1 -2 -3 -4 0
+    c Answer: 3
+    v 1 -2 3 4 0
+    c Answer: 4
+    v 1 -2 3 -4 0
+    c Answer: 5
+    v 1 2 -3 -4 0
+    c Answer: 6
+    v 1 2 3 -4 0
+    s SATISFIABLE
+    c
+    c Models         : 6
+    c Calls          : 1
+    c Time           : 0.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+    c CPU Time       : 0.000s
+  \end{verbatim}
+
+  したがって充足可能である。
+\end{itemize}
+
+
 \item SATソルバーclaspを用い，以下の関係が成り立つことを示しなさい
 （claspへの入力ファイルと実行方法，実行結果を示してください）
   \[
@@ -45,9 +110,39 @@
   \]
 
   ※SATソルバーへ入力できる形式に変形しましょう
+  \paragraph{解答}
+  \begin{itemize}
+    \item 入力ファイル
+    \begin{verbatim}
+      p cnf 3 4
+      -1 2 3 0
+      1 -2 0
+      1 -3 0
+      -1 0
+    \end{verbatim}
+    \item 実行方法：以下のコマンドを入力する。
+    \begin{verbatim}
+         clasp-3.3.2/clasp-3.3.2-x86_64-linux 0 q5.cnf
+    \end{verbatim}
+    \item 結果
+    \begin{verbatim}
+      c clasp version 3.3.2
+      c Reading from q5.cnf
+      c Solving...
+      c Answer: 1
+      v -1 -2 -3 0
+      s SATISFIABLE
+      c
+      c Models         : 1
+      c Calls          : 1
+      c Time           : 0.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+      c CPU Time       : 0.000s
+    \end{verbatim}
+    したがって、$B_11 = False, P_12 = False, P_21 = False$のときに、節集合は充足可能である。このとき、$\neg p_12 \wedge \neg p_21$はTrueになるので成立する。
+  \end{itemize}
 
 
 \item 質問・コメント等がありましたらご記入ください（採点対象外です）
-  
+
 \end{enumerate}
 \end{document}
