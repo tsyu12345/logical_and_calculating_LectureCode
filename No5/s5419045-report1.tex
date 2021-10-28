@@ -1,0 +1,101 @@
+\documentclass[dvipdfmx]{jsarticle}
+\usepackage[T1]{fontenc}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{lmodern}
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{here}
+\usepackage{float}
+\usepackage{ascmac}
+\usepackage{url}
+
+\title{SATソルバーを用いた命題論理問題の説明と具体的問題に対する計算機実験}
+\author{文理学部情報科学科\\5419045 高林 秀}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+本稿は、今年度論理と計算2における課題学習として「命題論理の説明」及び「SATソルバーを使用した、その具体的問題の解決を行う計算機実験」を行うものである。本稿の冒頭〜中盤では関係理論の説明を行い、終盤ではその理論を利用して、実際に具体的な問題をSATソルバーを使用して解答する。なお、本演習にはSATソルバーとしてclaspを使用した。
+\end{abstract}
+
+\section{目的}
+本稿は、今年度論理と計算2における課題学習として、SAT ソルバーを用いた命題論理による宣言的問題解決を通じ，命題論理に関する学修内容を振り返ることを目的とする。\par
+本稿は大まかに次のように構成される。
+\begin{enumerate}
+  \item 計算理論説明
+  \begin{enumerate}
+    \item 命題論理における解釈とモデル、その他関連する事項について
+    \item SAT問題とはなにか
+    \item DPLLアルゴリズムの解説
+  \end{enumerate}
+  \item 計算機実験
+  \begin{enumerate}
+    \item $N$人の女王
+    \item グラフ頂点の彩色
+  \end{enumerate}
+  \item 各問に関する考察
+  \item まとめ
+  \item 巻末資料
+\end{enumerate}
+\section{計算理論説明}
+この章では、今回の計算機実験に使用した各計算理論の解説を行う。
+  \subsection{命題論理とは}
+  \subsection{命題論理における解釈}
+  \subsection{モデルについて}
+  \subsection{SAT問題とは}
+  \subsection{DPLLアルゴリズム}
+\section{計算機実験}
+\subsection{実験準備}
+  \subsubsection{実験環境}
+  今回の実験は仮想マシン上でclaspのバイナリをダウンロードして行った。下記に実験時の環境を示す。
+  \begin{itemize}
+    \item ホストOS：Window10 Home 20H2
+    \item 仮想OS：Ubuntu 20.04.2 LTS
+    \item CPU：Intel(R)Core(TM)i7-9700K @ 3.6GHz
+    \item GPU：Nvidia Geforce RTX2070 OC @ 8GB
+    \item ホストRAM：16GB
+    \item 仮想RAM：4GB
+  \end{itemize}
+\subsubsection{問題1:$N$人の女王}
+配布資料中に、Processingのプログラムが「nQueen.pde」として以下の関数が用意されている。
+\begin{itemize}
+  \item バックトラック法を用いて nQueen を解く関数
+  \item clasp への入力ファイルを作成する関数
+\end{itemize}
+\begin{enumerate}
+  \item この問題に対するSAT符号化を詳細に説明せよ。
+  \item N の大きさを様々に変えながら，バックトラック法で解いた場合と SAT ソルバーで解いた場合とでの実行時間を比較・考察しなさい．
+\end{enumerate}
+\subsubsection{問題2:グラフ頂点の彩色問題}
+配布資料中の「GraphColoring」フォルダに、「都道府県の隣接関係」を表すグラフの頂点彩色問題の CNF ファイ
+ルが用意されている。
+\begin{enumerate}
+  \item この問題に対するSAT符号化を詳細に説明せよ。
+  \item 関東地方を対象に、いくつの塗分け方法があるか調べなさい。
+  \item 47 都道府県を対象とした色塗りの例を一つ示しなさい。
+  \begin{enumerate}
+    \item （例）長野県：青色, 神奈川県：赤色、のように、どの都道府県をどの色で塗るのかを具体的に示すこと。
+  \end{enumerate}
+\end{enumerate}
+\subsection{各問に対する解答・考察}
+\subsubsection{問題1:$N$人の女王}
+\subsubsection{問題2:グラフ頂点の彩色問題}
+\section{まとめ}
+\section{巻末資料}
+本稿で使用した画像、プログラムコード等はすべて以下のリンク先に掲載している。必要に応じてご覧頂きたい。
+\begin{itemize}
+  \item GoogleDrive:\url{https://drive.google.com/drive/folders/1kOW_1KPUw_kBznaMWjge7HaBI7FoRAoq?usp=sharing}
+  \item GitHub:\url{https://github.com/tsyu12345/logical_and_calculating_LectureCode/tree/master/No5}
+\end{itemize}
+
+
+\end{document}
