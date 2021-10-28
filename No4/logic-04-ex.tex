@@ -42,7 +42,30 @@
 \item SATとして定式化できる問題の具体例と，その問題におけるSAT符号化の指針を示しなさい
   （※「簡単に調査してください」ということです）
 \paragraph{解答}\par
-
+\begin{itemize}
+  \item 具体例：数独問題
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{sudoku.jpg}\par
+    出典：\url{https://analytics-notty.tech/sudoku-rules/}
+  \end{figure}
+  \item SAT符号化の指針:以下のルールにおいて、順序符号化法と呼ばれる手法でSAT符号化する。\par
+  １行１列のマスを$X_{1,1}$、１行２列のマスを$X_{1,2}$とする。このとき、$X_{1,1}$に$x^1,x^2, x^3,...x^8$、$X_{1,2}にx^{9}, x^{10}, ....,x^{16}$というように各マスに8個、合計で648個の命題変数を定める。
+  \begin{itemize}
+    \item 1つのマスに１〜９の数字が１つのみ入る。\par
+    例えば、$X_{1,1}$について割り当てた8個の変数を使用して次の節ができる。
+    \begin{align*}
+      (\neg x^{1} \vee x^{2}) \wedge (\neg x^{2} \vee x^{3}) \wedge (\neg x^{3} \vee x^{4}) \wedge (\neg x^{4} \vee x^{5}) \wedge (\neg x^{5} \vee x^{6}) \wedge (\neg x^{6} \vee x^{7}) \wedge (\neg x_{7} \vee x_{8})
+    \end{align*}
+    この7節が各マスごとに存在するので、このルールは567節に符号化できる。\par
+    以下下記のルールも同様に、Tseitin 変換と呼ばれる手法を使用してSAT符号化することができる。
+    本稿では割愛する。
+    \item 縦１列には１〜９の数字が１つずつ入る。\par
+    \item 横１列には、１〜９の数字が１つずつ入る。
+    \item $3\times 3$で囲まれた９マスには１〜９の数字が１つずつ入る。
+  \end{itemize}
+  \item 参考URL：\url{https://www.ipsj-kyushu.jp/page/ronbun/hinokuni/1002/C-5/C-5-4.pdf}
+\end{itemize}
 
 
 \item 節集合$\{(x_1\lor x_2), (\neg x_2 \lor \neg x_3\lor  \neg x_4), (x_1\lor x_4), (\neg x_2\lor x_3\lor \neg x_4)\}$の
@@ -96,7 +119,8 @@
     c Time           : 0.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
     c CPU Time       : 0.000s
   \end{verbatim}
-  すなわち、$x_{1}, x_{4} = True、x_{2}, x_{3}=Falseのとき$、
+  すなわち、$x_{1}, x_{4} = True、x_{2}, x_{3}=Falseのとき$、$x_{1} = True, x_{2}, x_{3}, x_{4} = Falseのとき$、$x_{1}, x_{3}, x_{4} = True、x_{2} = Falseのとき$、$x_{1}, x_{3} = True、x_{2}, x_{4} = Falseのとき$、$x_{1}, x_{2} = True、x_{3}, x_{4} = Falseのとき$、
+  $x_{1}, x_{2}, x_{3} = True、x_{4} = False$のとき解釈は$True$になる。
   したがって充足可能である。
 \end{itemize}
 
