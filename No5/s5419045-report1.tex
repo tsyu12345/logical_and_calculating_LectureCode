@@ -65,8 +65,11 @@
       $\wedge$          & 連言 & プログラミングではよくand、\&\&として扱われる。pかつq\\
       $\vee$            & 選言 & プログラミングではor, ||。pまたはq\\
       $\neg$            & 否定 & プログラミングではnot, !。pではない\\
-      $\Rightarrow$     & 伴意 &〜ならばの意味で使われる。pならばq\\
-      $\Leftrightarrow$ & 同値 &「pはqである」がtrueのとき、もしくはその時点に限りtrueであるとき。pとqは同値。
+      $\Rightarrow, \supset$     & 含意 &〜ならばの意味で使われる。直感的には「pが真であるとき、必ずqは真である」\\
+      $\Leftrightarrow, \equiv$ & 同値 &「pはqである」がtrueのとき、もしくはその時点に限りtrueであるとき。pとqは同値。\\
+      $\top$ &トートロジー(恒真)&後述するトートロジーを示す記号 \\
+      $\bot$ &恒偽(矛盾)&後述する恒偽を示す記号\\
+      (補足)$\veebar, \oplus$ & 排他的論理和& NANDと呼ばれるもの。\\
       \end{tabular}
   \end{table}
   \paragraph{命題文〜原子文,複合文}
@@ -122,8 +125,72 @@
 \begin{dfn}
   命題文$\alpha$に現れる原子文（または命題記号）を$\alpha_{1},\alpha_{2},\alpha_{3},...,\alpha_{n}$とする。このとき、各原子文$\alpha_{i(1 \leq i \leq n)}$に対する真理値（truem false）の割当を「$\alpha$の解釈」と呼ぶ。
 \end{dfn}
-命題記号$p, q, r$が定義されているとする。このとき、命題文
+命題記号$p, q, r$が定義されているとする。このとき、命題文「$p \wedge q \vee r$」の解釈は次のものが考えられる。
+\begin{align*}
+  \{p=true, q=true, r=true\}, \{p=true, q=true, r=false\}, \\
+  \{p=false, q=true, r=true\}, \{p=false, q=true, r=false\},\\
+   \{p=true, q=false, r=true\}, \{p=true, q=false, r=false\},\\
+    \{p=false, q=false, r=true\}, \{p=false, q=false, r=false\}
+\end{align*}
+そしてその組み合わせの数は$2^{3} = 8$より8個である。一般化すると、「$n$個の原子文がある時、解釈の個数は$2^{n}個$」である。\par
+ただし、こうズラズラ書いていては非常に煩雑であるので、以下のようにtrueが割り当てられている命題記号だけ抜き出して記述する略記法も定義されている。上記例の場合は以下のようになる。
+\begin{align*}
+  \{p, q, r\}, \{p, q\}, \{q,r\}, \{q\},\{p,r\},\{p\},\{r\}
+\end{align*}
+すなわち、解釈とは命題記号に対するtrue,falseの割当パターンのことである。この解釈のうち、命題文$\alpha$の真理値をtrueにする解釈が、次に示す「モデル」と呼ばれる。
 \subsection{モデルについて}
+モデルという言葉の意味には次のようなものが挙げられるだろう。
+\begin{itemize}
+  \item ある事柄の手本や見本
+  \item ある事象について、様々な要素とそれらの相互関係を定式化したもの
+  \item 機械学習モデルなど、データ解析の手法のこと。
+\end{itemize}
+命題論理における「モデル」とは先に示したとおり、「命題文の真理値をtrueにする解釈」のことである。
+\begin{dfn}
+  命題文$\alpha$の真理値を真(true)にする解釈$I$を$\alpha$のモデルと呼ぶ。
+\end{dfn}
+繰り返すが、命題文をtrueにする解釈をモデルと呼ぶ、ただそれだけである。\par
+真理値表では、各行がそれぞれ一つの解釈となっており、全体の命題文を真にする行（解釈）がモデルということだ。
+\subsubsection{トートロジーと充足可能}
+任意の命題文の真理値表を作成すると、すべての解釈でtrueになる命題文がでてくることがある。この様な命題文ないしは命題論理式を「トートロジー(tautology)」と呼ぶことがある。トートロジーとは日本語で「恒真」、すなわち常に真である、ということを意味する。以下、\url{https://qiita.com/kimunny/items/195f45154b6cc6a2940b}より引用する。
+\begin{quote}
+  命題論理において、パラメータの命題の値にかかわらず、常に真になる論理式をトートロジー、あるいは常真式と呼びます。
+\end{quote}
+以下にトートロジーになる命題論理式の例を示す。これらは後述する「命題論理式の標準形」に変形する際に必要となる考え方である。
+%%ここにトートロジーの例を載せる
+また、真理値表を書くとトートロジーであることが確認できる。
+\begin{table}[H]
+  \centering
+\begin{tabular}{|c|c|c||c|c|c|c|c|c|c|} \hline
+$\alpha$ & $\beta$ & $\gamma$ & $\alpha$ & $\vee$ & $(\beta \wedge \gamma)$ & $\Leftrightarrow$ & $(\alpha \vee \beta)$ & $\wedge$ & $(\alpha \vee \gamma)$ \\ \hline
+false    & false   & false    & false    & false  & false                   & true              & false                 & false    & false                  \\ \hline
+false    & false   & true     & false    & false  & false                   & true              & false                 & false    & true                   \\ \hline
+false    & true    & false    & false    & false  & false                   & true              & true                  & false    & false                  \\ \hline
+false    & true    & true     & false    & true   & true                    & true              & true                  & true     & true                   \\ \hline
+true     & false   & false    & true     & true   & false                   & true              & true                  & true     & true                   \\ \hline
+true     & false   & true     & true     & true   & false                   & true              & true                  & true     & true                   \\ \hline
+true     & true    & false    & true     & true   & false                   & true              & true                  & true     & true                   \\ \hline
+true     & true    & true     & true     & true   & true                    & true              & true                  & true     & true \\ \hline
+\end{tabular}
+\end{table}
+
+これとは反対に、どの解釈でも常に偽になる命題論理式を「矛盾(contradictory well-formed formula)」または「恒偽」と呼ぶ。\par
+また、真にも偽にもなりうる命題論理式を「整合式(consistent well-formed formula)」または「充足可能」と呼ぶ。\par
+これらの言葉を使うと、先に述べた論理定数であるtrueとfalseはそれぞれ、「トートロジー,恒偽」であり、任意の命題変数$p$はtrue,falseどちらも取り得るため充足可能である、と言える。
+整理すると以下。
+\begin{itemize}
+  \item 論理定数true:トートロジーである。
+  \item 論理定数false:恒偽である。
+  \item 任意の命題変数$p$:充足可能である。
+\end{itemize}
+すなわち、ある命題文、命題論理式の真理値表を作成するということは「その命題文がトートロジーであるか、それとも恒偽であるか、それとも充足可能であるか」を調査、判定していることになる。
+\subsection{伴意関係(Entailment)}
+まず、伴意という言葉の意味を示す。
+
+
+
+
+
 \subsection{SAT問題とは}
 \subsection{DPLLアルゴリズム}
 \section{計算機実験}
