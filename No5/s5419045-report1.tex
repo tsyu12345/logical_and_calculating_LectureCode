@@ -14,6 +14,8 @@
 \usepackage{float}
 \usepackage{ascmac}
 \usepackage{url}
+\newtheorem{dfn}{定義}
+
 
 \title{SATソルバーを用いた命題論理問題の説明と具体的問題に対する計算機実験}
 \author{文理学部情報科学科\\5419045 高林 秀}
@@ -58,13 +60,13 @@
   今説明したように、命題論理では命題同士の性質、関係性を扱う。それを説明する上で「結合子（論理記号）」と呼ばれるものが定義されている。
     \begin{table}[H]
       \centering
-      \begin{tabular}{ll}
-      記号                & 意味 \\
-      $\wedge$          & 連言(and、\&\&)\\
-      $\vee$            & 選言(or, ||)\\
-      $\neg$            & 否定(not)\\
-      $\Rightarrow$     & 伴意\\
-      $\Leftrightarrow$ & 同値
+      \begin{tabular}{lll}
+      記号                & 訳 & 意味\\
+      $\wedge$          & 連言 & プログラミングではよくand、\&\&として扱われる。pかつq\\
+      $\vee$            & 選言 & プログラミングではor, ||。pまたはq\\
+      $\neg$            & 否定 & プログラミングではnot, !。pではない\\
+      $\Rightarrow$     & 伴意 &〜ならばの意味で使われる。pならばq\\
+      $\Leftrightarrow$ & 同値 &「pはqである」がtrueのとき、もしくはその時点に限りtrueであるとき。pとqは同値。
       \end{tabular}
   \end{table}
   \paragraph{命題文〜原子文,複合文}
@@ -91,14 +93,39 @@
   \end{itemize}
   とくに含意文$\alpha \Rightarrow \beta$については$\alpha$を前提、$\beta$を帰結と呼ぶ。また、原子文とその否定文$\neg p, \neg q, \neg z$をひとくくりにしてリテラルと呼ぶ。
   \paragraph{知識ベース}また、命題文の集合において、各文を結合子$\wedge$で連結したものを知識ベースと呼ぶことがある。（例：$KB$[KnowledgeBase] = \{S1, S2, S3\} $\Rightarrow$ S1 $\wedge$ S2 $\wedge$ S3)
-  \subsubsection{真理値表(trueth table)}
+  \paragraph{真理値表(trueth table)}
   命題文の真偽は先に上げた論理定数true, falseで示す。複合文の真偽を表にまとめて示したものを真理値表と呼ぶ。先に上げた各構文の真理値は、真理値表を用いて次のように定義されている。
-
-  \subsection{命題論理における解釈}
-
-  \subsection{モデルについて}
-  \subsection{SAT問題とは}
-  \subsection{DPLLアルゴリズム}
+  \begin{table}[H]
+    \centering
+\begin{tabular}{|l|l||l|l|l|l|l|} \hline
+  $p$   & $q$   & $\neg p$ & $p \wedge q$ & $p \vee q$ & $p \Rightarrow q$ & $p \Leftrightarrow q$ \\ \hline
+  false & false & true     & false        & false      & true              & true                \\ \hline
+  false & true  & true     & false        & true       & true              & false               \\ \hline
+  true  & false & false    & false        & true       & false             & false               \\ \hline
+  true  & true  & false    & true         & true       & true              & true \\ \hline
+\end{tabular}
+\end{table}
+上記真理値表より、含意文に関して重要なことを以下に列挙する。
+\begin{itemize}
+    \item 前提$\alpha$がfalseの場合、帰結$\beta$の真理値に関係なく、式としてtrueになる。
+    \item 前提$\alpha$と帰結$\beta$の間に因果関係や関連性は要求されない。すなわち、前提文と帰結文がかけ離れた話題であっても、前提が真ならば含意文としては真となる。（例：$p:$のび太は人間である$\Rightarrow$ $q:$スネ夫は金持ちのボンボンである、の$p,q$に直接的な関連性はないが、前提の$p$がtrueであるので、文としてはtrue（正しい）となる。）
+\end{itemize}
+ここまで、基本用語の説明を行った。以降は、命題論理における「解釈、モデル、伴意関係」とはなにか、加えてSAT問題やDPLLアルゴリズムについて説明する。
+\subsection{解釈について}
+解釈という言葉の意味は日本国語大辞典に次のように書かれている(一部抜粋)。
+\begin{quote}
+  語句や物事の意味、内容などを説明すること。解き明かすこと。また、その解説。\par
+  物事、特に表現されたものを、自分の経験や判断力などによって理解すること。\par
+  法令の意味を明確にして、その内容が動かないように定めること。
+\end{quote}
+命題論理における「解釈」とは、これらの意味に関係なく次のように定義する。
+\begin{dfn}
+  命題文$\alpha$に現れる原子文（または命題記号）を$\alpha_{1},\alpha_{2},\alpha_{3},...,\alpha_{n}$とする。このとき、各原子文$\alpha_{i(1 \leq i \leq n)}$に対する真理値（truem false）の割当を「$\alpha$の解釈」と呼ぶ。
+\end{dfn}
+命題記号$p, q, r$が定義されているとする。このとき、命題文
+\subsection{モデルについて}
+\subsection{SAT問題とは}
+\subsection{DPLLアルゴリズム}
 \section{計算機実験}
 \subsection{実験準備}
   \subsubsection{実験環境}

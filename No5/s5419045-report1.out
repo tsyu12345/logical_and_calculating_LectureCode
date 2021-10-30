@@ -1,7 +1,7 @@
 \BOOKMARK [1][-]{section.1}{目的}{}% 1
 \BOOKMARK [1][-]{section.2}{計算理論説明}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{命題論理とは}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{命題論理における解釈}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.2}{解釈について}{section.2}% 4
 \BOOKMARK [2][-]{subsection.2.3}{モデルについて}{section.2}% 5
 \BOOKMARK [2][-]{subsection.2.4}{SAT問題とは}{section.2}% 6
 \BOOKMARK [2][-]{subsection.2.5}{DPLLアルゴリズム}{section.2}% 7
