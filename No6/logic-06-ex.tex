@@ -1,12 +1,26 @@
 \documentclass[dvipdfmx]{jsarticle}
-\usepackage[dvipdfmx]{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{lmodern}
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{here}
+\usepackage{float}
+\usepackage{ascmac}
+\usepackage{url}
 
 \def\NO{06}
 \def\LECTURENAME{論理と計算}
 \begin{document}
 \title{\LECTURENAME{}：第\NO{}回演習問題}
 
-\author{5499000 日大太郎}
+\author{5419045 高林秀}
 
 \date{}
 \maketitle
@@ -21,6 +35,9 @@
 \begin{enumerate}\setlength{\itemsep}{\baselineskip}
 \item  一階述語論理における文の定義を，日本語で説明しなさい
 （講義資料中のBNFによる表記を日本語で説明してください）．
+\paragraph{解答}一階述語論理における文は、「原子文」、「複合文」と呼ばれる構成要素からなる。\par
+原子文はtrueまたはfalseまたは小文字から始まる文字列で構成される「述語記号」または、述語記号に関数記号が付与され、その中に「項」と呼ばれるものが入力されている「述語」または、2つの項同士が等しいとする書き方がこれに該当する。項は、小文字から始まる文字列または数値である「定数」または、大文字で始まる文字列である「定数」または、関数記号の中に項が複数入る場合が該当する。\par
+複合文は文にそれぞれ、否定記号がついた「否定文」または、連言記号がつき文同士を連結した「連言文」または、選言記号がつき文同士を連結した「選言文」または、含意記号がつき文同士を連結した「含意文」または、同値記号がつき文同士を連結した「同値文」または、「限量子」が付与された変数の後に文が続いたもの、が該当する。限量子は$\forall$や$\exists$からなる記号のことである。
 
 \item 以下の各述語論理式の意図を示しなさい．なお，love(X,Y)の解釈を「XがYを愛する」とする．
   \begin{enumerate}
@@ -29,12 +46,24 @@
   \item $\exists X\,\forall Y\, love(X,Y)$
   \item $\exists X\,\exists Y\, love(X,Y)$
   \end{enumerate}
+  \paragraph{解答}
+  \begin{enumerate}
+    \item 誰もが誰か関係なく（すべてを）愛する。
+    \item 誰もが誰かを愛する。
+    \item 誰かが誰か関係なく（すべてを）愛する。
+    \item 誰かが誰かを愛する。
+  \end{enumerate}
+
 
 \item 「すべての人間はそれぞれ心臓を持っている」を述語論理式で表現しなさい．
   なお述語記号，human(X)：Xは人間である，heart(X)：Xは心臓である，has(X,Y)：XはYを持っている，
   を用いること．
+  \paragraph{解答}$\forall X \exists Y(human(X)\Rightarrow has(X, Y), heart(Y))$
 
-\item $\forall X (\, (\, p(X)\land q(X)\,) \Rightarrow r(X) )$から$\forall$を除去しなさい（$\exists$を使って書き換えなさい）．
+
+\item $\forall X (\, (\, p(X)\land q(X)\,) \Rightarrow r(X) )$から$\forall$を除去しなさい（$\exists$を使って書き換えなさい）．\par
+\paragraph{解答}$\neg \exists X(p(X) \wedge q(X) \wedge \neg r(X))$
+
 
 
 \item 文$\gamma = \forall X, Y, Z\, (\, win(X,Y) \land win(Y,Z)\Rightarrow  win(Z,X) \,)$が，
@@ -48,7 +77,7 @@
   \item 述語記号：win(X, Y) .. ジャンケンにおいて，手Xは手Yに勝つ
   \end{itemize}
 
-\item 質問・コメント等がありましたらご記入ください（採点対象外です）．  
+\item 質問・コメント等がありましたらご記入ください（採点対象外です）．
 
 \end{enumerate}
 \end{document}
