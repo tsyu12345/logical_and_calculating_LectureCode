@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.5.19)  1 NOV 2021 00:38
+This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.5.19)  1 NOV 2021 02:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -464,6 +464,10 @@ LaTeX Info: Redefining \nameref on input line 24.
 \@outlinefile=\write3
 \openout3 = `s5419045-report1.out'.
 
+
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 (Font)              scaled to size 16.60605pt on input line 27.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
@@ -474,7 +478,6 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 11.53198pt on input line 27.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
 7.
-
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -618,34 +621,45 @@ File: cap1.png Graphic file (type bmp)
 File: cap2.JPG Graphic file (type bmp)
 <cap2.JPG>
  [10]
-Overfull \hbox (14.79572pt too wide) in paragraph at lines 359--360
+File: cap3.JPG Graphic file (type bmp)
+<cap3.JPG>
+ [11]
+[12]
+Overfull \hbox (14.79572pt too wide) in paragraph at lines 389--390
 []\T1/lmr/m/n/10 GoogleDrive:[]$\T1/lmtt/m/n/10 https : / / drive . google . co
 m / drive / folders / 1kOW _ 1KPUw _ kBznaMWjge7HaBI7FoRAoq ?
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 360--361
+Underfull \hbox (badness 10000) in paragraph at lines 390--391
 []\T1/lmr/m/n/10 GitHub:[]$\T1/lmtt/m/n/10 https : / / github . com / tsyu12345
  / logical _ and _ calculating _ LectureCode / tree /
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 364.
-[11]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 364.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 394.
+[13]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 394.
  (./s5419045-report1.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 364.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 364.
-Package rerunfilecheck Info: File `s5419045-report1.out' has not changed.
-(rerunfilecheck)             Checksum: FC1CE5A51C7B5EEA75BB88754C3E93C4;796.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 364.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 394.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 394.
+
+
+Package rerunfilecheck Warning: File `s5419045-report1.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `s5419045-report1.out':
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  FC1CE5A51C7B5EEA75BB88754C3E93C4;796.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 394.
  ) 
 Here is how much of TeX's memory you used:
- 7502 strings out of 482863
- 110553 string characters out of 5959218
- 384049 words of memory out of 5000000
+ 7504 strings out of 482863
+ 110605 string characters out of 5959218
+ 383833 words of memory out of 5000000
  22608 multiletter control sequences out of 15000+600000
  609761 words of font info for 126 fonts, out of 8000000 for 9000
  269 hyphenation exceptions out of 8191
  37i,9n,29p,770b,442s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on s5419045-report1.dvi (11 pages, 56540 bytes).
+Output written on s5419045-report1.dvi (13 pages, 65048 bytes).
