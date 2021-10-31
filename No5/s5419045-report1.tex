@@ -94,7 +94,7 @@
     \item 含意文：結合子$\Rightarrow$で連結されている複合文。
     \item 同値文：結合子$\Leftrightarrow$で連結されている複合文。
   \end{itemize}
-  とくに含意文$\alpha \Rightarrow \beta$については$\alpha$を前提、$\beta$を帰結と呼ぶ。また、原子文とその否定文$\neg p, \neg q, \neg z$をひとくくりにしてリテラルと呼ぶ。
+  とくに含意文$\alpha \Rightarrow \beta$については$\alpha$を前提、$\beta$を帰結と呼ぶ。また、原子文とその否定文$p, q, \neg z$をひとくくりにしてリテラルと呼ぶ。
   \paragraph{知識ベース}また、命題文の集合において、各文を結合子$\wedge$で連結したものを知識ベースと呼ぶことがある。（例：$KB$[KnowledgeBase] = \{S1, S2, S3\} $\Rightarrow$ S1 $\wedge$ S2 $\wedge$ S3)
   \paragraph{真理値表(trueth table)}
   命題文の真偽は先に上げた論理定数true, falseで示す。複合文の真偽を表にまとめて示したものを真理値表と呼ぶ。先に上げた各構文の真理値は、真理値表を用いて次のように定義されている。
@@ -161,7 +161,22 @@
 \end{quote}
 以下にトートロジーになる命題論理式の例を示す。これらは後述する「命題論理式の標準形」に変形する際に必要となる考え方である。
 %%ここにトートロジーの例を載せる
-また、真理値表を書くとトートロジーであることが確認できる。
+\begin{align*}
+  &\alpha \Rightarrow \alpha ：排中律\\
+  &\alpha \vee \neg \alpha ：二重否定\\
+  &(\alpha \Rightarrow \beta) \Leftrightarrow (\neg \alpha \vee \beta)：含意記号の定義 \\
+  &(\alpha \Leftrightarrow \beta) \Leftrightarrow (\alpha \Rightarrow \beta) \wedge (\beta \Rightarrow \alpha)：同値記号の定義\\
+  &(\alpha \Rightarrow \beta) \Leftrightarrow (\neg \beta \Rightarrow \neg \alpha)：対偶 \\
+  &\alpha \wedge \beta \Leftrightarrow \beta \wedge \alpha：連言交換率 \\
+  &\alpha \vee \beta \Leftrightarrow \beta \vee \alpha：選言交換率\\
+  &\neg(\alpha \wedge \beta) \Leftrightarrow \neg \alpha \vee \beta：ド・モルガンの法則 \\
+  &\neg(\alpha \vee \beta) \Leftrightarrow \neg \alpha \wedge \neg \beta：ド・モルガンの法則\\
+  &\alpha \wedge (\beta \wedge \gamma) \Leftrightarrow (\alpha \wedge \beta) \wedge \gamma：連言結合律 \\
+  &\alpha \vee (\beta \vee \gamma) \Leftrightarrow (\alpha \vee \beta) \vee \gamma：選言結合律 \\
+  &\alpha \wedge (\beta \vee \gamma) \Leftrightarrow (\alpha \wedge \beta) \vee (\alpha \wedge \gamma)：連言の選言への分配率 \\
+  &\alpha \vee (\beta \wedge \gamma) \Leftrightarrow (\alpha \vee \beta) \wedge (\alpha \vee \gamma)：選言の連言への分配率
+\end{align*}
+また、真理値表を書くとトートロジーであることを確認することができる。
 \begin{table}[H]
   \centering
 \begin{tabular}{|c|c|c||c|c|c|c|c|c|c|} \hline
@@ -196,6 +211,37 @@ true     & true    & false  & true                    & true              & fals
   \item 任意の命題変数$p$:充足可能である。
 \end{itemize}
 すなわち、ある命題文、命題論理式の真理値表を作成するということは「その命題文がトートロジーであるか、それとも恒偽であるか、それとも充足可能であるか」を調査、判定していることになる。
+\subsubsection{命題論理式の標準形}
+以降の章で登場するSATソルバーを扱う際に必要となる知識である「命題論理式の標準形」について説明する。ここまで示したように、ある文を命題論理式で表すにはいくつかのパターンが考えられる。これらをより制限された文に制限することで、単純な文とすることが求められる。そこで登場するのが命題論理式の標準形と呼ばれるものである。\par
+本稿では以下２つの標準形について扱う。
+\begin{itemize}
+  \item 選言標準形(disjunctive normal form)
+  \item 連言標準形(（conjunctive normal form)←後述するSATソルバーで利用する。
+\end{itemize}
+上記の2つを総称してここでは標準形と言う。さて、標準形は文を制限すると述べたが具体的にどのように制限するのか。標準形では論理式中で使用できる結合子が限られている。以下は使用できる結合子の一覧である。
+\begin{itemize}
+  \item 連言$\wedge$
+  \item 選言$\vee$
+  \item 否定$\neg$
+\end{itemize}
+この３つのみの結合子を利用して、論理式を記述する。以下、標準形の定義を示す。
+\begin{dfn}
+  選言標準形：すべての選言文を構成する各要素（選言肢）がリテラルの連言である選言文は、選言標準形をしている、という。
+\end{dfn}
+「リテラルの連言である選言文」とは、リテラルの連言記号$\wedge$を論理式を変形して$\vee$で連結したものである。例えば、$(p \wedge q) \vee (r \wedge \neg s \wedge t) \vee (q \wedge r)$などのように、各命題文を結合子$\vee$で連結している文の事を指す。
+\begin{dfn}
+  連言標準形：すべての選言文を構成する各要素（選言肢）がリテラルの選言である連言文は、連言標準形をしている、という。
+\end{dfn}
+選言標準形と同様の考え方で、リテラルの選言記号$\vee$を論理式を変形して$\wedge$で連結したものである。例えば、$(p \vee q) \wedge (r \vee \neg s \vee t) \wedge (q \vee r)$などのように、各命題文を結合子$\wedge$で連結している文の事を指す。
+\paragraph{標準形への変形}すべての命題文は標準形に変形することができる。具体的には、与えられた命題論理式に対し次のような操作を実行し、求めたい標準形に変形する。
+\begin{itemize}
+  \item 同値記号の削除：トートロジーの例で示した「$(\alpha \Leftrightarrow \beta) \Leftrightarrow (\alpha \Rightarrow \beta) \wedge (\beta \Rightarrow \alpha)$」により同値記号を削除する。
+  \item 含意記号の削除：トートロジーの例で示した「$(\alpha \Rightarrow \beta) \Leftrightarrow (\neg \alpha \vee \beta)$」により含意記号を削除する。
+  \item 否定記号の除去と移動：ド・モルガンの法則や、二重否定を用いて論理式中の否定記号を削除・移動する。
+  \item 選言・連言記号の移動：選言・連言の交換率「$\alpha \vee \beta \Leftrightarrow \beta \alpha$」・「$\alpha \wedge \beta \Leftrightarrow \wedge \alpha$」、や選言・連言の分配率「（略）」を利用して、求める標準系の記号を、そうでない記号より内側へ移動させる。
+\end{itemize}
+
+
 \subsection{伴意関係(Entailment)}
 命題論理における伴意関係（別名：論理的帰結）とは以下のような意味をもつ。以下Wikipediaの\url{https://ja.wikipedia.org/wiki/%E8%AB%96%E7%90%86%E7%9A%84%E5%B8%B0%E7%B5%90}より引用する。
 \begin{quote}
@@ -207,7 +253,7 @@ true     & true    & false  & true                    & true              & fals
   & G \models \alpha \\
   &意味：「理論Gを文（命題文）\alpha が伴意する」＝ 理論Gから\alpha が論理的に導出できる。\\
 \end{align*}
-これは、理論$G$の解釈がtrueであるとき、$\alpha$もtrueとなることを意味している。すなわち、$G$がtrueのとき、$\alpha$は常にtrueになるということだ。よって、含意文で示すと$G \Rightarrow \alpha がトートロジー$となる。つまり伴意関係とは、$G$がtrue（$G$の全要素がtrue）であるとき、$\alpha$がfalseになることはありえない、トートロジーであると言っているのである。したがって、命題文が伴意関係にあるか否かはトートロジーであることを確認すればよいことになる。\par
+これは、理論$G$の解釈がtrueであるとき、$\alpha$もtrueとなることを意味している。すなわち、$G$がtrueのとき、$\alpha$は常にtrueになるということだ。よって、含意文で示すと$G \Rightarrow \alpha がトートロジー$となる。つまり伴意関係とは、$G$がtrue（$G$の全要素がtrue）であるとき、$\alpha$がfalseになることはありえない、トートロジーであると言っているのである。したがって、命題文が伴意関係にあるか否かはトートロジーであることを確認すればよいことになる。すなわち、含意文のトートロジー判定に還元していることになる。\par
 例を挙げる。$G = \{p, q, (p \wedge q)\Rightarrow r\}としたとき、G \models r$または、$G$を展開して、$\{p, q, (p \wedge q)\Rightarrow r\} \models r$といったように表記する。このとき、$\{p, q, (p \wedge q)\Rightarrow r\}$は、$(p \wedge q \wedge (p\wedge q)\Rightarrow r)$と同じであるので、真理値表では以下のように示すことができる。
 \begin{table}[H]
   \centering
@@ -259,11 +305,16 @@ true  & ture  & true  & true         & true                          & true \\ \
   \caption{SATの木構造化}
   ※引用元：\url{https://jssst-ppl.org/workshop/2017/slides/ppl2017_c4_soh.pdf}
 \end{figure}
-このように捉えることによって、木構造の特徴である「枝刈り」や「探索打ち切り」を行うことができる。SATソルバーはこのように、真理値割当中に命題論理式がtrueにならないと確定した時点で「探索打ち切り」や「分岐の削減」を行うことで効率を高めている。その方法が後述するDPLLアルゴリズムの章で触れる「早期停止」や「節学習」、「単位伝搬」と呼ばれる方法であり、それらを組み合わせたSATアルゴリズムが「DPLL」と呼ばれるアルゴリズムである。
-
-
-SAT問題においては、モデルの有無のみが問われるので、探索中に１つのモデルが存在すればその時点で探索を終了すれば良いことになる。したがって、命題変数への真理値割当の際に命題論理式がtrueにならないことが確定した時点で探索を打ち切り、次の真理値割当へと進めば良い。
-
+このように捉えることによって、木構造の特徴である「枝刈り」や「探索打ち切り」を行うことができる。SATソルバーはこのように、真理値割当中に命題論理式がtrueにならないと確定した時点で「探索打ち切り」や「分岐の削減」を行うことで効率を高めている。SAT問題においては、モデルの有無のみが問われるので、探索中に１つのモデルが存在すればその時点で探索を終了すれば良いことになる。したがって、命題変数への真理値割当の際に命題論理式がtrueにならないことが確定した時点で探索を打ち切り、次の真理値割当へと進めば良い。その方法が後述するDPLLアルゴリズムの章で触れる「早期停止」や「節学習」、「単位伝搬」と呼ばれる方法であり、それらを組み合わせたSATアルゴリズムが「DPLL」と呼ばれるアルゴリズムである。
+\paragraph{CNF式}さて、先に示したようにSAT問題を解くにはSATソルバーに入力できるよう、形式を整える必要がある。具体的に言うと、SAT問題は先に示した、連言標準形でつくられるCNF式によって与えられる。CNF式とは、「複数の節の論理積、すなわち連言」である。ここで、「節」という単語が登場する。節とは、複数のリテラルの論理和、すなわち選言である。\par
+先に示したように、連言標準形は「$(p \vee q) \wedge (r \vee \neg s \vee t) \wedge (q \vee r)$」のような形をしている。各命題文同士を結合子$\wedge$で連結し、1つの小さな命題文※（）の中では、$\vee$を使用してリテラルが連結されているのが分かるだろう。CNF式はいってしまえば、連言標準形で記載された命題論理式を「1,2,3」のような数字記号に変形して、一定の法則で記述したものである。一般に、この一定の法則には「DIMACS CNF」と呼ばれるフォーマットが使用される。
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.6]{cap2.JPG}
+  \caption{DIMACS CNF}
+  ※引用元：\url{https://jssst-ppl.org/workshop/2017/slides/ppl2017_c4_soh.pdf}
+\end{figure}
+見ての通り、先頭行にある「p cnf」はおまじないみたいなもので、その隣りにある「3 4」の部分がそれぞれ「命題変数の個数」と「節の個数」を示している。続く2行目以降に、命題論理式の節を記載していくのだが、このとき否定記号を「マイナス$-$」で示す。また、各命題変数には固有の数字記号が与えられる。命題論理式の記述は、先頭行で示した節の個数分だけ記載する。
 \subsection{DPLLアルゴリズム}
 \section{計算機実験}
 \subsection{実験準備}
