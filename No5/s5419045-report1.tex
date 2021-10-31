@@ -378,6 +378,11 @@ SAT問題では充足可能か否かを判定する。したがって、命題�
     \item ホストRAM：16GB
     \item 仮想RAM：4GB
   \end{itemize}
+  SATソルバーclaspを利用するには、先に示したCNF形式のファイルを作成し、以下のコマンドを入力することで実行することができる。
+  \begin{verbatim}
+    $ ./clasp [オプション] cmfファイル名
+  \end{verbatim}
+  オプションの部分に０を入れると、すべての解を示し、何もなければ一番最初に見つけた解を表示する。
 \subsubsection{問題1:$N$人の女王}
 配布資料中に、Processingのプログラムが「nQueen.pde」として以下の関数が用意されている。
 \begin{itemize}
