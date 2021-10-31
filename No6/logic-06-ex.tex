@@ -1,0 +1,54 @@
+\documentclass[dvipdfmx]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+
+\def\NO{06}
+\def\LECTURENAME{論理と計算}
+\begin{document}
+\title{\LECTURENAME{}：第\NO{}回演習問題}
+
+\author{5499000 日大太郎}
+
+\date{}
+\maketitle
+
+\begin{itemize}
+\item Latexを用いて作成し，PDF形式で提出してください
+\end{itemize}
+
+
+\vspace*{\baselineskip}
+
+\begin{enumerate}\setlength{\itemsep}{\baselineskip}
+\item  一階述語論理における文の定義を，日本語で説明しなさい
+（講義資料中のBNFによる表記を日本語で説明してください）．
+
+\item 以下の各述語論理式の意図を示しなさい．なお，love(X,Y)の解釈を「XがYを愛する」とする．
+  \begin{enumerate}
+  \item $\forall X\,\forall Y\, love(X,Y)$
+  \item $\forall X\,\exists Y\, love(X,Y)$
+  \item $\exists X\,\forall Y\, love(X,Y)$
+  \item $\exists X\,\exists Y\, love(X,Y)$
+  \end{enumerate}
+
+\item 「すべての人間はそれぞれ心臓を持っている」を述語論理式で表現しなさい．
+  なお述語記号，human(X)：Xは人間である，heart(X)：Xは心臓である，has(X,Y)：XはYを持っている，
+  を用いること．
+
+\item $\forall X (\, (\, p(X)\land q(X)\,) \Rightarrow r(X) )$から$\forall$を除去しなさい（$\exists$を使って書き換えなさい）．
+
+
+\item 文$\gamma = \forall X, Y, Z\, (\, win(X,Y) \land win(Y,Z)\Rightarrow  win(Z,X) \,)$が，
+  恒真，恒偽，充足可能のいずれかを判定したい．
+  どの様にしたらよいか？なお，領域や定数記号の対応に関しては，以下のとおりとする
+
+  \begin{itemize}
+  \item 領域$D$ = \{ グー, チョキ, パー \}
+  \item 定数記号：r(ock), p(aper), s(cissors)の対応：r$\rightarrow$グー，p$\rightarrow$パー，s$\rightarrow$チョキ
+  \item 関数記号：なし
+  \item 述語記号：win(X, Y) .. ジャンケンにおいて，手Xは手Yに勝つ
+  \end{itemize}
+
+\item 質問・コメント等がありましたらご記入ください（採点対象外です）．  
+
+\end{enumerate}
+\end{document}
