@@ -1,8 +1,8 @@
 
 void setup(){
-  int N = 40;
+  int N = 20;
   
-  // nqueen(N); //バックトラック法
+  //nqueen(N); //バックトラック法
   
   makeCNF(N,"queen_"+N+".cnf", "queen_var_"+N+".txt");
   println("done");
