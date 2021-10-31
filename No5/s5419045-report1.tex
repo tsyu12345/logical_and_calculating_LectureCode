@@ -98,16 +98,19 @@
   \paragraph{知識ベース}また、命題文の集合において、各文を結合子$\wedge$で連結したものを知識ベースと呼ぶことがある。（例：$KB$[KnowledgeBase] = \{S1, S2, S3\} $\Rightarrow$ S1 $\wedge$ S2 $\wedge$ S3)
   \paragraph{真理値表(trueth table)}
   命題文の真偽は先に上げた論理定数true, falseで示す。複合文の真偽を表にまとめて示したものを真理値表と呼ぶ。先に上げた各構文の真理値は、真理値表を用いて次のように定義されている。
+\begin{dfn}
+  複合文の真理値は以下のとおりである。
   \begin{table}[H]
-    \centering
-\begin{tabular}{|l|l||l|l|l|l|l|} \hline
-  $p$   & $q$   & $\neg p$ & $p \wedge q$ & $p \vee q$ & $p \Rightarrow q$ & $p \Leftrightarrow q$ \\ \hline
-  false & false & true     & false        & false      & true              & true                \\ \hline
-  false & true  & true     & false        & true       & true              & false               \\ \hline
-  true  & false & false    & false        & true       & false             & false               \\ \hline
-  true  & true  & false    & true         & true       & true              & true \\ \hline
-\end{tabular}
-\end{table}
+      \centering
+  \begin{tabular}{|l|l||l|l|l|l|l|} \hline
+    $p$   & $q$   & $\neg p$ & $p \wedge q$ & $p \vee q$ & $p \Rightarrow q$ & $p \Leftrightarrow q$ \\ \hline
+    false & false & true     & false        & false      & true              & true                \\ \hline
+    false & true  & true     & false        & true       & true              & false               \\ \hline
+    true  & false & false    & false        & true       & false             & false               \\ \hline
+    true  & true  & false    & true         & true       & true              & true \\ \hline
+  \end{tabular}
+  \end{table}
+\end{dfn}
 上記真理値表より、含意文に関して重要なことを以下に列挙する。
 \begin{itemize}
     \item 前提$\alpha$がfalseの場合、帰結$\beta$の真理値に関係なく、式としてtrueになる。
@@ -173,7 +176,16 @@ true     & true    & false    & true     & true   & false                   & tr
 true     & true    & true     & true     & true   & true                    & true              & true                  & true     & true \\ \hline
 \end{tabular}
 \end{table}
-
+\begin{table}[H]
+  \centering
+\begin{tabular}{|cc||cc|c|ccc|} \hline
+$\alpha$ & $\beta$ & $\neg$ & $(\alpha \wedge \beta)$ & $\Leftrightarrow$ & $\neg \alpha$ & $\vee$ & $\neg \beta$ \\ \hline
+false    & false   & true   & false                   & true              & true          & true   & true         \\ \hline
+false    & true    & true   & false                   & true              & true          & true   & false        \\ \hline
+true     & false   & true   & false                   & true              & false         & true   & true         \\ \hline
+true     & true    & false  & true                    & true              & false         & false  & false \\ \hline
+\end{tabular}
+\end{table}
 これとは反対に、どの解釈でも常に偽になる命題論理式を「矛盾(contradictory well-formed formula)」または「恒偽」と呼ぶ。\par
 また、真にも偽にもなりうる命題論理式を「整合式(consistent well-formed formula)」または「充足可能」と呼ぶ。\par
 これらの言葉を使うと、先に述べた論理定数であるtrueとfalseはそれぞれ、「トートロジー,恒偽」であり、任意の命題変数$p$はtrue,falseどちらも取り得るため充足可能である、と言える。
@@ -185,7 +197,34 @@ true     & true    & true     & true     & true   & true                    & tr
 \end{itemize}
 すなわち、ある命題文、命題論理式の真理値表を作成するということは「その命題文がトートロジーであるか、それとも恒偽であるか、それとも充足可能であるか」を調査、判定していることになる。
 \subsection{伴意関係(Entailment)}
-まず、伴意という言葉の意味を示す。
+命題論理における伴意関係（別名：論理的帰結）とは以下のような意味をもつ。以下Wikipediaの\url{https://ja.wikipedia.org/wiki/%E8%AB%96%E7%90%86%E7%9A%84%E5%B8%B0%E7%B5%90}より引用する。
+\begin{quote}
+  論理的帰結（ろんりてききけつ、伴意、英: logical consequence, entailment）は、論理学における最も基本的な概念であり、複数の文（または命題）の集合と1つの文（命題）の間が「～だから、当然～」という繋がり方をする関係を指す。
+\end{quote}
+すなわち、「命題文の集合」と「命題文」の関係のことを示している。この伴意関係を式で示したものを「伴意式」と呼ぶ。このとき、命題文の集合のことを「理論」と呼ぶ。加えて、この「理論」は先に示した知識ベース「KB」のことであり、各命題文を連言記号で連結したもの「連言文」と同じである。
+\paragraph{伴意式}一般的に伴意式は次のような表記をする。
+\begin{align*}
+  & G \models \alpha \\
+  &意味：「理論Gを文（命題文）\alpha が伴意する」＝ 理論Gから\alpha が論理的に導出できる。\\
+\end{align*}
+これは、理論$G$の解釈がtrueであるとき、$\alpha$もtrueとなることを意味している。すなわち、$G$がtrueのとき、$\alpha$は常にtrueになるということだ。よって、含意文で示すと$G \Rightarrow \alpha がトートロジー$となる。つまり伴意関係とは、$G$がtrue（$G$の全要素がtrue）であるとき、$\alpha$がfalseになることはありえない、トートロジーであると言っているのである。したがって、命題文が伴意関係にあるか否かはトートロジーであることを確認すればよいことになる。\par
+例を挙げる。$G = \{p, q, (p \wedge q)\Rightarrow r\}としたとき、G \models r$または、$G$を展開して、$\{p, q, (p \wedge q)\Rightarrow r\} \models r$といったように表記する。このとき、$\{p, q, (p \wedge q)\Rightarrow r\}$は、$(p \wedge q \wedge (p\wedge q)\Rightarrow r)$と同じであるので、真理値表では以下のように示すことができる。
+\begin{table}[H]
+  \centering
+\begin{tabular}{|ccc||c|c|c|} \hline
+$p$   & $q$   & $r$   & $p \wedge q$ & $p\wedge q \Leftrightarrow r$ & $p \wedge q \wedge (p \wedge q \Rightarrow r)$ \\ \hline
+false & false & false & false        & true                          & false                                          \\ \hline
+false & false & true  & false        & true                          & false                                          \\ \hline
+false & true  & false & false        & true                          & false                                          \\ \hline
+false & true  & true  & false        & true                          & false                                          \\ \hline
+true  & false & false & false        & true                          & false                                          \\ \hline
+true  & false & true  & false        & true                          & false                                          \\ \hline
+true  & true  & false & true         & false                         & false                                          \\ \hline
+true  & ture  & true  & true         & true                          & true \\ \hline
+\end{tabular}
+\end{table}
+以上より、$G$がtrueであるとき、$r$もtrueとなっていることが確認できる。したがって、伴意式「$G \models r$」は成立する（伴意関係にある）。
+
 
 
 
