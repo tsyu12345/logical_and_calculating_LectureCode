@@ -1,6 +1,19 @@
 \documentclass[dvipdfmx]{jsarticle}
-\usepackage[dvipdfmx]{graphicx}
-
+\usepackage[T1]{fontenc}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{lmodern}
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{here}
+\usepackage{float}
+\usepackage{ascmac}
+\usepackage{url}
 \def\NO{07}
 \def\LECTURENAME{論理と計算}
 \begin{document}
@@ -31,8 +44,8 @@
   \end{enumerate}
   \paragraph{解答}
   \begin{enumerate}
-    \item
-    \item
+    \item $\{\neg p(X) \vee q(X, h(X)), \neg p(X) \vee r(h(X))\}$
+    \item $\{love(i(X), X) \vee animal(h(X)), love(i(x), X) \vee \neg love(X, h(X))\}$
     \item
   \end{enumerate}
 
@@ -47,11 +60,11 @@
   \end{enumerate}
   \paragraph{解答}
   \begin{enumerate}
-    \item
-    \item
-    \item
-    \item
-    \item item
+    \item $\theta = \{ X/a, Y/Z, Z/b\}$
+    \item $\theta = \{ X/Y, Y/jhon \}$
+    \item $\theta = \{ X/s(0), Y/s(s(0)), Z/0\}$
+    \item $\{ X/Y, Y/s(Y) \}$
+    \item 存在しない。
   \end{enumerate}
 
 
@@ -59,7 +72,9 @@
   節集合$S\,=\,\{  \neg p(X)\lor \neg q(Y)\lor r(X,Y), p(a), q(b)  \}$から，
   融合法を用いて$\alpha=r(a,b)$を導出する過程を示しなさい．
   \paragraph{解答}
-
+  \begin{align*}
+    &\Sigma = \Sigma_{0}とする。\\
+  \end{align*}
 
 \item 節集合
   $S\,=\,\{
