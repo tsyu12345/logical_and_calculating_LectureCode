@@ -1,0 +1,84 @@
+\documentclass[dvipdfmx]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+
+\def\NO{07}
+\def\LECTURENAME{論理と計算}
+\begin{document}
+\title{\LECTURENAME{}：第\NO{}回演習問題}
+
+\author{5419045 高林秀}
+
+\date{}
+\maketitle
+
+\begin{itemize}
+\item Latexを用いて作成し，PDF形式で提出してください
+\end{itemize}
+
+
+\vspace*{\baselineskip}
+
+\begin{enumerate}\setlength{\itemsep}{\baselineskip}
+
+\item 下記の各文を（括弧の位置に注意して）節集合に変換せよ
+  \begin{enumerate}
+
+  \item $\forall X\,( p(X)\Rightarrow \exists Y\,(q(X,Y)\land r(Y)\,)\,)$
+
+  \item $\forall X\,( \forall Y\,(animal(Y)\Rightarrow loves(X,Y)\,)\Rightarrow \exists Z\,(loves(Z,X)\,)\,)$
+
+  \item $\forall X\,( \exists Y\,(animal(Y)\land kills(X,Y)\,)\Rightarrow \forall Z\,( \neg loves(Z,X)\,)\,)$
+  \end{enumerate}
+  \paragraph{解答}
+  \begin{enumerate}
+    \item
+    \item
+    \item
+  \end{enumerate}
+
+\item 以下の各リテラル対に対し，最汎単一化代入を求めなさい．なお，存在しない場合は「存在しない」と回答しなさい
+
+  \begin{enumerate}
+  \item p(a,b,b) と p(X,Y,Z)
+  \item elder(father(Y),Y) と elder(father(X), john)
+  \item p(s(X,s(Y,Z))) と p(s(s(0),s(s(s(0)),0)))
+  \item p(s(X),X) と p(Y,Y)
+  \item q(p(X),r(Y)) と q(r(X),p(Y))
+  \end{enumerate}
+  \paragraph{解答}
+  \begin{enumerate}
+    \item
+    \item
+    \item
+    \item
+    \item item
+  \end{enumerate}
+
+
+\item
+  節集合$S\,=\,\{  \neg p(X)\lor \neg q(Y)\lor r(X,Y), p(a), q(b)  \}$から，
+  融合法を用いて$\alpha=r(a,b)$を導出する過程を示しなさい．
+  \paragraph{解答}
+
+
+\item 節集合
+  $S\,=\,\{
+  \neg b(1,1), \neg p(X,Y)\lor \neg n(X,Y,X1,Y1)\lor b(X1,Y1),
+  n(1,1,2,1), n(1,1,1,2), \neg n(X,Y,X1,Y1)\lor n(X1,Y1,X,Y), n(X,Y,X1,Y1)\lor \neg n(X1,Y1,X,Y)
+  \}$
+  から，融合法による反駁証明を用いて$\alpha=\neg p(2,1)\land \neg p(1,2)$を導出する過程を示しなさい．
+  \paragraph{解答}
+
+
+
+\item $p(X) \lor q(X,Y)\succeq p(A) \lor q(A,A) \lor r(A,B)$が成り立つこと（または成り立たないこと）を示しなさい．
+\paragraph{解答}
+
+
+\item （余力があったらやってみよう）
+  Prolog以外の言語を用いて，
+  二つの項$s,t$を与え，$s$と$y$が単一化可能か不能化を判定するプログラムを作成してみよう
+
+\item 質問・コメント等がありましたらご記入ください（採点対象外です）．
+\end{enumerate}
+\end{document}
