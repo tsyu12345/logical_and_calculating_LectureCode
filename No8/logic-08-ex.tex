@@ -1,0 +1,76 @@
+\documentclass[dvipdfmx]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+
+\def\NO{08}
+\def\LECTURENAME{論理と計算}
+\begin{document}
+\title{\LECTURENAME{}：第\NO{}回演習問題}
+
+\author{5419045 高林秀}
+
+\date{}
+\maketitle
+
+\begin{itemize}
+\item Latexを用いて作成し，PDF形式で提出してください
+\end{itemize}
+
+
+\vspace*{\baselineskip}
+
+\begin{enumerate}\setlength{\itemsep}{\baselineskip}
+
+\item 節集合を$S\,=\,\{ human(tom), human(jack), \neg human(X)\lor mortal(X), \neg loves(X,Y)\lor loves(Y,X) \}$とする
+  \begin{enumerate}
+  \item $S$のエルブラン領域を示しなさい
+  \item $S$のエルブラン基底を示しなさい
+  \item $S$の基礎節集合を示しなさい
+  \end{enumerate}
+\paragraph{解答}
+\begin{enumerate}
+  \item \{tom, jack\}
+  \item \{human(tom), human(jack), mortal(tom), mortal(jack), loves(tom, tom), loves(tom, jack), loves(jack,tom), loves(jack,jack)\}
+  \item $\{human(tom), human(jack), \neg human(tom) \vee mortal(tom), \neg human(jack) \vee mortal(jack), \neg loves(tom, jack) \vee loves(jack, tom), \neg loves(jack, tom) \vee loves(tom, jack)\}$
+\end{enumerate}
+
+
+\item 安定モデル・解集合とは何か，ごくごく簡単に説明しなさい．
+\paragraph{解答}$not$すなわち「不明」という概念が追加された標準論理プログラムを確定論理プログラムへ変形し、その最小モデルを計算する。そのとき仮定と一致したモデルを安定モデル戸呼ぶ。解集合とは、拡張論理プログラムにおいて、そのルールを真とするようなモデル、すなわちリテラルの集合のことを解集合という。
+
+
+\item 拡張論理プログラムにおける二種類の否定について説明しなさい．
+\paragraph{解答}拡張論理プログラムには「否定$\neg$」と「不明$not$」の２つの否定が存在する。$\neg$は命題論理と同じく「否定」を表し、$\neg A$の場合は「Aでない」と意味する。「$not$」は「〜であるか不明である」というように不確定の表現を意味する。「$not A$」の場合は「Aであるか不明である」ということを意味する。
+
+
+
+\item 以下の論理プログラム$P$に対し，
+  （エルブラン基底の部分集合である）アトム集合$S$
+  及び Reduct $P^S$，$P^S$の最小モデル$Cn(P^S)$を示した上で，
+  $P$の安定モデルを求めなさい．
+  \[
+  P\,=\,\left\{
+  \begin{array}{l}
+    wake \leftarrow coffee.\\
+    wake \leftarrow tea.\\
+    tea \leftarrow not~ coffee.\\
+    coffee \leftarrow not~ tea.\\
+  \end{array}
+  \right\}
+  \]
+
+\item 以下の論理プログラム$R$に対し，解集合を計算しなさい(clingoを使いましょう）．
+
+  \[
+  R\,=\,\left\{
+  \begin{array}{l}
+    person(tom).\\
+    male(X);female(X)\leftarrow person(X).\\
+    bachleor(X)\leftarrow male(X), not~ married(X).\\
+  \end{array}
+  \right\}
+  \]
+
+
+\item 質問・コメント等がありましたらご記入ください（採点対象外です）．
+\end{enumerate}
+\end{document}
