@@ -1,6 +1,19 @@
 \documentclass[dvipdfmx]{jsarticle}
-\usepackage[dvipdfmx]{graphicx}
-
+\usepackage[T1]{fontenc}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{lmodern}
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{here}
+\usepackage{float}
+\usepackage{ascmac}
+\usepackage{url}
 \def\NO{08}
 \def\LECTURENAME{論理と計算}
 \begin{document}
@@ -57,6 +70,22 @@
   \end{array}
   \right\}
   \]
+  \paragraph{解答}
+  \begin{table}[H]
+  \begin{tabular}{|l|l|l|l|} \hline
+  $S$                    & $P^{S}$                                                                                                                          & $C_{n}(P^{S})$         & $S == C_{n}(P^{S})$ \\ \hline
+  $\{\}$                 & \begin{tabular}[c]{@{}l@{}}$wake\Leftarrow coffe$\\ $wake \Leftarrow tea$\\ $tea \Leftarrow $ \\ $coffe \Leftarrow$\end{tabular} & $\{walk, tea, coffe\}$ & $No$                \\ \hline
+  $\{W\}$                & \begin{tabular}[c]{@{}l@{}}$wake\Leftarrow coffe$\\ $wake \Leftarrow tea$\\ $tea \Leftarrow $ \\ $coffe \Leftarrow$\end{tabular} & $\{walk, tea, coffe\}$ & $No$                \\ \hline
+  $\{tea\}$              & \begin{tabular}[c]{@{}l@{}}$wake\Leftarrow coffe$\\ $wake \Leftarrow tea$\\ $tea \Leftarrow $\end{tabular}                       & $\{walk, tea\}$        & $No$                \\ \hline
+  $\{coffe\}$            & \begin{tabular}[c]{@{}l@{}}$wake\Leftarrow coffe$\\ $wake \Leftarrow tea$\\ $coffe \Leftarrow$\end{tabular}                      & $\{walk, coffee\}$     & $No$                \\ \hline
+  $\{walk, tea\}$        & \begin{tabular}[c]{@{}l@{}}$wake\Leftarrow coffe$\\ $wake \Leftarrow tea$\\ $tea \Leftarrow $\end{tabular}                       & $\{walk,tea\}$         & $Yes$               \\ \hline
+  $\{walk, coffe\}$      & \begin{tabular}[c]{@{}l@{}}$wake\Leftarrow coffe$\\ $wake \Leftarrow tea$\\ $coffe \Leftarrow$\end{tabular}                      & $\{walk,coffee\}$      & $Yes$               \\ \hline
+  $\{tea, coffe\}$       & \begin{tabular}[c]{@{}l@{}}$wake\Leftarrow coffe$\\ $wake \Leftarrow tea$\end{tabular}                                           & $\{walk\}$             & $No$                \\ \hline
+  $\{walk, tea, coffe\}$ & \begin{tabular}[c]{@{}l@{}}$wake\Leftarrow coffe$\\ $wake \Leftarrow tea$\end{tabular}                                           & $\{walk\}$             & $No$ \\ \hline
+  \end{tabular}
+  \end{table}
+より、安定モデル$S = \{walk, tea\}, \{walk, coffee\}$。
+
 
 \item 以下の論理プログラム$R$に対し，解集合を計算しなさい(clingoを使いましょう）．
 
