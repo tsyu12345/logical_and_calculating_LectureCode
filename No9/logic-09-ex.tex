@@ -41,6 +41,30 @@
   \item $X\subseteq U \Rightarrow Cn(P^U)\subseteq X$
   \item $L\subseteq X\subseteq U \Rightarrow  L\cup Cn(P^U)\subseteq X\subseteq U\cap Cn(P^L)$
   \end{enumerate}
+\paragraph{解答}
+\begin{enumerate}
+  \item $L\subseteq X \Rightarrow X\subseteq Cn(P^L)$
+  \begin{align*}
+    &L \in Xより\\
+    &P^{X} \subseteq P^{L} \Rightarrow Cn(P^{X}) \subseteq Cn(P^{L})\\
+    &また、安定モデルX = Cn(P^{X})より\\
+    & X \subseteq Cn(P^{L})\\
+    &したがって、L\subseteq X\Rightarrow X\subseteq Cn(P^L)
+  \end{align*}
+  \item $X\subseteq U \Rightarrow Cn(P^U)\subseteq X$
+  \begin{align*}
+    & X \subseteq Uより\\
+    & X \subseteq U \Rightarrow P^{U} \subseteq P^{X} \\
+    &P^{U} \subseteq P^{X} \Rightarrow Cn(P^{U}) \subseteq Cn(P^{X}) \\
+    &安定モデルX = Cn(P^{X})であるから\\
+    &Cn(P^{U}) \subseteq Cn(P^{X}) = Cn(P^{U}) \subseteq X\\
+    &したがって、X\subseteq U \Rightarrow Cn(P^U)\subseteq X
+  \end{align*}
+  \item $L\subseteq X\subseteq U \Rightarrow  L\cup Cn(P^U)\subseteq X\subseteq U\cap Cn(P^L)$
+  \begin{align*}
+  \end{align*}
+  \end{enumerate}
+
 
 
 \item アルゴリズム solve及びexpandに従い，以下の標準論理プログラム$P$の解集合を求める過程を示しなさい．
@@ -56,6 +80,18 @@
   \]
 
 \item ルール$1\{A ; not\,B\}1\leftarrow \{ C \}.$ を標準論理プログラミングに変形しなさい．
+\paragraph{解答}
+\begin{align*}
+  & D \leftarrow C \\
+  & \{A\} \leftarrow D \\
+  & E \leftarrow 1\{A; not B\}1 \\
+  & E \leftarrow F, not G \\
+  & F \leftarrow 1\{A;not B\} \\
+  & G \leftarrow 2\{A;not B\} \\
+  & \leftarrow D, not C \\
+  & X \leftarrow D, not C, not X \\
+\end{align*}
+
 
 \item 質問・コメント等がありましたらご記入ください（採点対象外です）．
 \end{enumerate}

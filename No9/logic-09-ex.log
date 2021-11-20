@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.5.19)  20 NOV 2021 16:31
+This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.5.19)  20 NOV 2021 19:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -409,7 +409,7 @@ File: l3backend-dvipdfmx.def 2020-02-03 L3 backend support: dvipdfmx
 \g__pdf_backend_object_int=\count274
 \g__pdf_backend_annotation_int=\count275
 )
-No file logic-09-ex.aux.
+(./logic-09-ex.aux)
 \openout1 = `logic-09-ex.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
@@ -432,11 +432,12 @@ LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 20.
 LaTeX Font Info:    ... okay on input line 20.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
 LaTeX Font Info:    ... okay on input line 20.
-(I search kanjifont definition file: . . ) (I search font definition file: . .
-. . . . . . )
+ (I search kanjifont definition file: . . )
+(I search font definition file: . . . . . . . . )
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 20
 .
- (/usr/share/texmf/tex/latex/lm/t1lmr.fd
+
+(/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 \AtBeginShipoutBox=\box78
@@ -456,6 +457,8 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 20.
 LaTeX Info: Redefining \pageref on input line 20.
 LaTeX Info: Redefining \nameref on input line 20.
+
+(./logic-09-ex.out) (./logic-09-ex.out)
 \@outlinefile=\write3
 \openout3 = `logic-09-ex.out'.
 
@@ -536,32 +539,35 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 6.72699pt on input line 37.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 4.805pt on input line 37.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 62.
- [1
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 45.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 45.
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 4
+5.
+
+(/usr/share/texmf/tex/latex/lm/t1lmss.fd
+File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [1
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 62.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 98.
+ [2]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 98.
  (./logic-09-ex.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 62.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 62.
-
-
-Package rerunfilecheck Warning: File `logic-09-ex.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `logic-09-ex.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 62.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 98.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 98.
+Package rerunfilecheck Info: File `logic-09-ex.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 98.
  ) 
 Here is how much of TeX's memory you used:
- 7359 strings out of 482863
- 108439 string characters out of 5959218
- 371785 words of memory out of 5000000
- 22497 multiletter control sequences out of 15000+600000
- 573063 words of font info for 96 fonts, out of 8000000 for 9000
+ 7399 strings out of 482863
+ 109165 string characters out of 5959218
+ 375785 words of memory out of 5000000
+ 22526 multiletter control sequences out of 15000+600000
+ 576114 words of font info for 99 fonts, out of 8000000 for 9000
  269 hyphenation exceptions out of 8191
- 37i,7n,29p,263b,326s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,8n,29p,263b,419s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on logic-09-ex.dvi (1 page, 3300 bytes).
+Output written on logic-09-ex.dvi (2 pages, 5820 bytes).
