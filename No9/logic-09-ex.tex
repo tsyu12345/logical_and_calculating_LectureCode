@@ -1,0 +1,62 @@
+\documentclass[dvipdfmx]{jsarticle}
+\usepackage[T1]{fontenc}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{lmodern}
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{here}
+\usepackage{float}
+\usepackage{ascmac}
+\usepackage{url}
+
+\def\NO{09}
+\def\LECTURENAME{論理と計算}
+\begin{document}
+\title{\LECTURENAME{}：第\NO{}回演習問題}
+
+\author{5419045 高林秀}
+
+\date{}
+\maketitle
+
+\begin{itemize}
+\item Latexを用いて作成し，PDF形式で提出してください
+\end{itemize}
+
+
+\vspace*{\baselineskip}
+
+\begin{enumerate}\setlength{\itemsep}{\baselineskip}
+
+\item 標準論理プログラム$P$の安定モデル$X$に対し，以下の性質が成り立つことを証明しなさい．
+  ただし，$Cn(\cdot)$は与えられた確定論理プログラムの最小モデルを表すものとする．
+  \begin{enumerate}
+  \item $L\subseteq X \Rightarrow X\subseteq Cn(P^L)$
+  \item $X\subseteq U \Rightarrow Cn(P^U)\subseteq X$
+  \item $L\subseteq X\subseteq U \Rightarrow  L\cup Cn(P^U)\subseteq X\subseteq U\cap Cn(P^L)$
+  \end{enumerate}
+
+
+\item アルゴリズム solve及びexpandに従い，以下の標準論理プログラム$P$の解集合を求める過程を示しなさい．
+  なお関数expandの動作過程，すなわち集合$L$やreduct $P^L$，最小モデル$Cn(P^L)$の値やその変化も示すこと．
+  \[
+  P\,=\left\{
+  \begin{tabular}{l}
+    a.\\
+    c :- not b, not d.\\
+    d :- a, not c.\\
+  \end{tabular}
+  \right\}
+  \]
+
+\item ルール$1\{A ; not\,B\}1\leftarrow \{ C \}.$ を標準論理プログラミングに変形しなさい．
+
+\item 質問・コメント等がありましたらご記入ください（採点対象外です）．
+\end{enumerate}
+\end{document}
