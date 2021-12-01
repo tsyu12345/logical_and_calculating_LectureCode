@@ -1,0 +1,50 @@
+\documentclass[dvipdfmx]{jsarticle}
+\usepackage[T1]{fontenc}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{lmodern}
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{here}
+\usepackage{float}
+\usepackage{ascmac}
+\usepackage{url}
+
+\title{解集合プログラミングを使用した宣言的問題解決に関する計算機実験}
+\author{文理学部情報科学科\\5419045 高林 秀}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+本稿は、今年度論理と計算2における課題学習として「」及び「SATソルバーを使用した、その具体的問題の解決を行う計算機実験」を行うものである。本稿の冒頭〜中盤では関係理論の説明を行い、終盤ではその理論を利用して、実際に具体的な問題をSATソルバーを使用して解答する。なお、本演習にはSATソルバーとしてclaspを使用した。
+\end{abstract}
+
+\section{目的}
+本稿は、今年度論理と計算2における課題学習として、SAT ソルバーを用いた命題論理による宣言的問題解決を通じ，命題論理に関する学修内容を振り返ることを目的とする。\par
+本稿は大まかに次のように構成される。
+\begin{enumerate}
+  \item 計算理論説明
+  \begin{enumerate}
+    \item 命題論理における解釈とモデル、その他関連する事項について
+    \item SAT問題とはなにか
+    \item DPLLアルゴリズムの解説
+  \end{enumerate}
+  \item 計算機実験
+  \begin{enumerate}
+    \item $N$人の女王
+    \item グラフ頂点の彩色
+  \end{enumerate}
+  \item 各問に関する考察
+  \item まとめ
+  \item 巻末資料
+\end{enumerate}
+\section{計算理論説明}
+この章では、今回の計算機実験に使用した各計算理論の解説を行う。
