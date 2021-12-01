@@ -24,23 +24,42 @@
 \maketitle
 
 \begin{abstract}
-本稿は、今年度論理と計算2における課題学習として「」及び「SATソルバーを使用した、その具体的問題の解決を行う計算機実験」を行うものである。本稿の冒頭〜中盤では関係理論の説明を行い、終盤ではその理論を利用して、実際に具体的な問題をSATソルバーを使用して解答する。なお、本演習にはSATソルバーとしてclaspを使用した。
+本稿は、今年度論理と計算2における課題学習として「解集合プログラミング」及び「具体的な問題の解決を行う計算機実験」を行うものである。本稿の冒頭〜中盤では関係理論の説明を行い、終盤ではその理論を利用して、実際に具体的な問題に対する解答を提示する。なお、本演習にはソルバーとしてclingoを使用した。
 \end{abstract}
 
 \section{目的}
-本稿は、今年度論理と計算2における課題学習として、SAT ソルバーを用いた命題論理による宣言的問題解決を通じ，命題論理に関する学修内容を振り返ることを目的とする。\par
-本稿は大まかに次のように構成される。
+本稿は、今年度論理と計算２の課題研究として、解集合プログラミングを使用した宣言的問題の解決と、その関係理論の説明を通して講義内容を振り返るものである。\par
+以降、本稿の概要は次のとおりである。
 \begin{enumerate}
   \item 計算理論説明
   \begin{enumerate}
-    \item 命題論理における解釈とモデル、その他関連する事項について
-    \item SAT問題とはなにか
-    \item DPLLアルゴリズムの解説
+    \item 述語論理について
+    \begin{enumerate}
+      \item 概要
+      \item 構文
+      \item 限量子
+      \item 解釈とモデル
+      \item 標準形
+    \end{enumerate}
+    \item 論理プログラムについて
+    \begin{enumerate}
+      \item エルブラン領域・基底
+      \item 論理プログラムのクラス区分
+      \item 確定論理プログラム
+    \end{enumerate}
+    \item 標準論理プログラムについて
+    \item 安定モデルについて
+    \begin{enumerate}
+      \item 概要
+      \item 導出アルゴリズム
+    \end{enumerate}
+    \item 解集合プログラミングについて
   \end{enumerate}
   \item 計算機実験
   \begin{enumerate}
-    \item $N$人の女王
-    \item グラフ頂点の彩色
+    \item clingoの説明
+    \item ハミルトン経路
+    \item 数独
   \end{enumerate}
   \item 各問に関する考察
   \item まとめ
@@ -48,3 +67,34 @@
 \end{enumerate}
 \section{計算理論説明}
 この章では、今回の計算機実験に使用した各計算理論の解説を行う。
+\subsection{述語論理について}
+  \subsubsection{構文}
+  \subsubsection{限量子}
+  \subsubsection{解釈とモデル}
+  \subsubsection{標準形}
+\subsection{論理プログラムについて}
+  \subsubsection{エルブラン領域・基底}
+  \subsubsection{論理プログラムのクラス区分}
+  \subsubsection{確定論理プログラム}
+\subsection{標準論理プログラムについて}
+\subsection{安定モデルについて}
+  \subsubsection{導出アルゴリズム}
+\subsection{解集合プログラミングについて}
+
+\section{計算機実験}
+\subsection{clingoの説明}
+\subsection{問題１：ハミルトン経路}
+\subsection{問題２：数独問題}
+
+\section{各問の結果・考察}
+\subsection{問題１：ハミルトン経路}
+\subsection{問題２：数独問題}
+
+\section{まとめ}
+\section{巻末資料}
+本稿で使用した画像、プログラムコード等はすべて以下のリンク先に掲載している。必要に応じてご覧頂きたい。
+\begin{itemize}
+  \item GoogleDrive:\url{https://drive.google.com/drive/folders/1n5JPwW-wtBKLASNwndoPRlT7vyZHQvT2?usp=sharing}
+  \item GitHub:\url{https://github.com/tsyu12345/logical_and_calculating_LectureCode/tree/master/No10}
+\end{itemize}
+\end{document}
