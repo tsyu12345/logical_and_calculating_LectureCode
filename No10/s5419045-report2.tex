@@ -394,6 +394,7 @@ $not$が追加されたことで、確定論理プログラムのモデルとな
 \end{itemize}
 このとき、入力を受けたプログラムは、解集合を返り値として返却する。今回の計算機実験では、この解集合プログラミング言語として、clingoを使用している。
 \section{計算機実験}
+今回は、clingoを使用し「ハミルトン経路」と「数独問題」の2種類の問題を解いていく。まず、実験時の環境とclingoについて軽く説明する。
 \subsection{実験準備}
   \subsubsection{実験環境}
   今回の実験は仮想マシン上でclaspのバイナリをダウンロードして行った。下記に実験時の環境を示す。
@@ -406,7 +407,21 @@ $not$が追加されたことで、確定論理プログラムのモデルとな
     \item 仮想RAM：4GB
   \end{itemize}
 \subsection{clingoの説明}
+clingoでは選言、連言などの記号は以下のように表記する。
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|l|l|} \hline
+    意味 & 入力記号 \\ \hline
+    選言              & ;   \\ \hline
+    連言              & ,   \\ \hline
+    $\leftarrow$    & :-  \\ \hline
+    デフォルトの否定「$not$」 & not \\ \hline
+    論理否定「$\neg$」    & - \\ \hline
+    \end{tabular}
+    \caption{各記号対応表}
+\end{table}
 \subsection{問題１：ハミルトン経路}
+
 \subsection{問題２：数独問題}
 
 \section{各問の結果・考察}
