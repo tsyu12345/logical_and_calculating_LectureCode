@@ -431,6 +431,19 @@ clingoでは選言、連言などの記号は以下のように表記する。
   \centering
   \includegraphics[scale=1.2]{images/hamiruton.JPG}
 \end{figure}
+使用する述語記号の表記と意味は次の通りとする。
+\begin{itemize}
+  \item node(X):$X$はノードである。
+  \item cycle(X,Y):$XからYへ移動する。$
+  \item reachable(X):ノード$X$は到達可能である。
+  \item edge(X, Y):$X,Y$間に辺がある。
+\end{itemize}
+以下この問題における制約を示す。
+\begin{enumerate}
+  \item Xから移動できる場所は ちょうど 一ヶ所 （出次数=1）
+  \item Xへ移動できる場所は ちょうど 一ヶ所 （入次数=1）
+  \item すべてのノードは到達可能でなければいけない．
+\end{enumerate}
 \subsection{問題２：数独問題}
 \paragraph{問題}
 \begin{enumerate}
@@ -443,6 +456,50 @@ clingoでは選言、連言などの記号は以下のように表記する。
 
 \section{各問の結果・考察}
 \subsection{問題１：ハミルトン経路}
+\paragraph{計算結果}
+
+以下はclingoに入力するファイル「hamilton-1.lp」の内容である。
+\begin{verbatim}
+  node(dresden).
+  node(petersburg).
+  node(novosibirsk).
+  node(stavropol).
+  node(moscow).
+  edge(stavropol, novosibirsk).
+  edge(dresden, moscow).
+  edge(moscow, petersburg).
+  edge(dresden, petersburg).
+  edge(moscow, stavropol).
+  edge(dresden, stavropol).
+  edge(moscow, novosibirsk).
+  edge(petersburg, novosibirsk).
+  edge(Y,X) :- edge(X, Y ).
+
+  1 { cycle(X,Y) : edge(X, Y) } 1 :- node(X).
+  1 { cycle(X,Y) : edge(X, Y) } 1 :- node(Y).
+  reachable(Y):- cycle(s, Y).
+  reachable(Y):- reachable(X), cycle(X,Y).
+  :- node(X), not reachable(X).
+\end{verbatim}
+以下のコマンドにより、定数$s$の値を指定し、結果を得る。
+\begin{itemize}
+  \item ./clingo -c s=dresden hamilton-1.lp
+\end{itemize}
+得られた結果は下記。
+\begin{verbatim}
+  clingo version 5.4.0
+Reading from hamilton-1.lp
+Solving...
+Answer: 1
+edge(stavropol,novosibirsk) edge(dresden,moscow) edge(moscow,petersburg) edge(dresden,petersburg) edge(moscow,stavropol) edge(dresden,stavropol) edge(moscow,novosibirsk) edge(petersburg,novosibirsk) edge(novosibirsk,petersburg) edge(novosibirsk,moscow) edge(stavropol,dresden) edge(stavropol,moscow) edge(petersburg,dresden) edge(petersburg,moscow) edge(moscow,dresden) edge(novosibirsk,stavropol) node(dresden) node(petersburg) node(novosibirsk) node(stavropol) node(moscow) reachable(moscow) reachable(petersburg) reachable(stavropol) cycle(dresden,stavropol) reachable(novosibirsk) reachable(dresden) cycle(stavropol,moscow) cycle(petersburg,dresden) cycle(moscow,novosibirsk) cycle(novosibirsk,petersburg)
+SATISFIABLE
+
+Models       : 1+
+Calls        : 1
+Time         : 0.003s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.003s
+
+\end{verbatim}
 \subsection{問題２：数独問題}
 
 \section{まとめ}

@@ -1,8 +1,8 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.5.19)  6 DEC 2021 06:23
+This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.5.19)  6 DEC 2021 08:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**s5419045-report2.tex ]
+**s5419045-report2.tex
 (./s5419045-report2.tex
 pLaTeX2e <2020-02-02>+2 (based on LaTeX2e <2020-02-02> patch level 2)
 L3 programming layer <2020-02-14>
@@ -615,29 +615,44 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
  [6] [7] [8] [9] [10] [11] [12]
 File: images/hamiruton.JPG Graphic file (type bmp)
 <images/hamiruton.JPG>
+ [13]
 File: images/sudoku.JPG Graphic file (type bmp)
 <images/sudoku.JPG>
- [13]
-Overfull \hbox (15.29572pt too wide) in paragraph at lines 452--453
+ [14]
+Overfull \hbox (3269.14246pt too wide) in paragraph at lines 502--502
+[]\T1/lmtt/m/n/10 edge(stavropol,novosibirsk) edge(dresden,moscow) edge(moscow,
+petersburg) edge(dresden,petersburg) edge(moscow,stavropol) edge(dresden,stavro
+pol) edge(moscow,novosibirsk) edge(petersburg,novosibirsk) edge(novosibirsk,pet
+ersburg) edge(novosibirsk,moscow) edge(stavropol,dresden) edge(stavropol,moscow
+) edge(petersburg,dresden) edge(petersburg,moscow) edge(moscow,dresden) edge(no
+vosibirsk,stavropol) node(dresden) node(petersburg) node(novosibirsk) node(stav
+ropol) node(moscow) reachable(moscow) reachable(petersburg) reachable(stavropol
+) cycle(dresden,stavropol) reachable(novosibirsk) reachable(dresden) cycle(stav
+ropol,moscow) cycle(petersburg,dresden) cycle(moscow,novosibirsk) cycle(novosib
+irsk,petersburg)[] 
+ []
+
+
+Overfull \hbox (15.29572pt too wide) in paragraph at lines 509--510
 []\T1/lmr/m/n/10 GoogleDrive:[]$\T1/lmtt/m/n/10 https : / / drive . google . co
 m / drive / folders / 1n5JPwW-[]wtBKLASNwndoPRlT7vyZHQvT2 ?
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 453--454
+Underfull \hbox (badness 10000) in paragraph at lines 510--511
 []\T1/lmr/m/n/10 GitHub:[]$\T1/lmtt/m/n/10 https : / / github . com / tsyu12345
  / logical _ and _ calculating _ LectureCode / tree /
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 455.
-[14]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 455.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 512.
+[15]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 512.
  (./s5419045-report2.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 455.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 455.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 512.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 512.
 Package rerunfilecheck Info: File `s5419045-report2.out' has not changed.
 (rerunfilecheck)             Checksum: 9B5531A2B5ADCD037239680DFF4E263E;1147.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 455.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 512.
  ) 
 Here is how much of TeX's memory you used:
  7504 strings out of 482863
@@ -646,6 +661,6 @@ Here is how much of TeX's memory you used:
  22612 multiletter control sequences out of 15000+600000
  611957 words of font info for 124 fonts, out of 8000000 for 9000
  269 hyphenation exceptions out of 8191
- 37i,10n,29p,725b,500s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,10n,29p,732b,500s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on s5419045-report2.dvi (14 pages, 60936 bytes).
+Output written on s5419045-report2.dvi (15 pages, 64040 bytes).
