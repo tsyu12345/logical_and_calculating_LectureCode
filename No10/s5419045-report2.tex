@@ -15,6 +15,7 @@
 \usepackage{ascmac}
 \usepackage{url}
 \newtheorem{dfn}{定義}
+\newtheorem{thm}{定理}
 
 \title{解集合プログラミングを使用した宣言的問題解決に関する計算機実験}
 \author{文理学部情報科学科\\5419045 高林 秀}
@@ -183,26 +184,30 @@
   \item 否定記号を原子文の直前へ移動させる。
   \begin{itemize}
     \item 二重否定の変形と、ド・モルガンの法則を利用する。
-    \begin{flalign*}
-      &\alpha \vee \neg \alpha ：二重否定 &\\
-      &\neg(\alpha \wedge \beta) \Leftrightarrow \neg \alpha \vee \beta：ド・モルガンの法則 &\\
-      &\neg(\alpha \vee \beta) \Leftrightarrow \neg \alpha \wedge \neg \beta：ド・モルガンの法則&\\
-      &\neg \exists X \alpha(X) \Leftrightarrow \forall X \neg \alpha (X)&\\
-      &\neg \forall X \alpha(X) \Leftrightarrow \exists X \neg \alpha (X)&\\
-    \end{flalign*}
+    \begin{screen}
+      \begin{flalign*}
+        &\alpha \vee \neg \alpha ：二重否定 &\\
+        &\neg(\alpha \wedge \beta) \Leftrightarrow \neg \alpha \vee \beta：ド・モルガンの法則 &\\
+        &\neg(\alpha \vee \beta) \Leftrightarrow \neg \alpha \wedge \neg \beta：ド・モルガンの法則&\\
+        &\neg \exists X \alpha(X) \Leftrightarrow \forall X \neg \alpha (X)&\\
+        &\neg \forall X \alpha(X) \Leftrightarrow \exists X \neg \alpha (X)&\\
+      \end{flalign*}
+    \end{screen}
   \end{itemize}
   \item 限量子を左端へ移動させる。
   \begin{itemize}
     \item 以下の同値変換に従い式変形する。
-    \begin{flalign*}
-      &Q：限量子、&\alpha\{X\}：Xを含む述語文\\
-      &QX(\alpha\{X\}) \vee \beta \Leftrightarrow (QX)(\alpha \{X\} \vee \beta) ※ただし、\beta にXは出現しない& \\
-      &QX(\alpha \{X\})\wedge \beta \Leftrightarrow (QX)(\alpha \{X\} \wedge \beta )&\\
-      &\forall X (\alpha \{X\}) \wedge \forall X (\gamma \{X\}) \Leftrightarrow \forall X (\alpha \{X\} \wedge \gamma \{X\})&\\
-      &\exists X (\alpha \{X\}) \vee \exists X (\gamma \{X\}) \Leftrightarrow \exists X (\alpha \{X\} \vee \gamma \{X\})&\\
-      &\forall X (\alpha \{X\}) \vee \forall X (\gamma \{X\}) \Leftrightarrow \forall X (\alpha \{X\}) \vee \forall Z (\gamma \{Z\})&\\
-      &\exists X (\alpha \{X\}) \wedge \exists X (\gamma \{X\}) \Leftrightarrow \exists X (\alpha \{X\}) \wedge \exists Z(\gamma \{Z\})&\\
-    \end{flalign*}
+    \begin{screen}
+      \begin{flalign*}
+        &Q：限量子、\alpha\{X\}：Xを含む述語文\\
+        &QX(\alpha\{X\}) \vee \beta \Leftrightarrow (QX)(\alpha \{X\} \vee \beta) ※ただし、\beta にXは出現しない& \\
+        &QX(\alpha \{X\})\wedge \beta \Leftrightarrow (QX)(\alpha \{X\} \wedge \beta )&\\
+        &\forall X (\alpha \{X\}) \wedge \forall X (\gamma \{X\}) \Leftrightarrow \forall X (\alpha \{X\} \wedge \gamma \{X\})&\\
+        &\exists X (\alpha \{X\}) \vee \exists X (\gamma \{X\}) \Leftrightarrow \exists X (\alpha \{X\} \vee \gamma \{X\})&\\
+        &\forall X (\alpha \{X\}) \vee \forall X (\gamma \{X\}) \Leftrightarrow \forall X (\alpha \{X\}) \vee \forall Z (\gamma \{Z\})&\\
+        &\exists X (\alpha \{X\}) \wedge \exists X (\gamma \{X\}) \Leftrightarrow \exists X (\alpha \{X\}) \wedge \exists Z(\gamma \{Z\})&\\
+      \end{flalign*}
+    \end{screen}
   \end{itemize}
 \end{enumerate}
 \paragraph{スコーレム標準形}
@@ -211,10 +216,35 @@
   「母式が連言標準形」である「存在限量子を持たない」冠頭標準形の述語文
 \end{dfn}
 スコーレム標準形では、存在限量子$\exists$が存在しない。すなわち、存在限量子は不要で削除できるということだ。これは、全称限量子と存在限量子はどちらか片方のみ存在すれば、論理表現として成立することを意味している。ただし、一般的に述語論理式を記述する際には、分かりやすさ、読みやすさの観点から両方使用することが多い。\par
-スコーレム標準系では、「スコーレム定数」、「スコーレム関数(記号)」を導入することで存在限量子$\exists$を除去する。これは限量子の章でも説明したが、存在限量子$\exists$はその変数が特定のなにかを示す限量子なので、そのなにかを示す定数を用意し置き換えれば良いことになる。
-
+スコーレム標準系では、「スコーレム定数」、「スコーレム関数(記号)」を導入することで存在限量子$\exists$を除去する。これは限量子の章でも説明したが、存在限量子$\exists$はその変数が特定のなにかを示す限量子なので、そのなにかを示す定数を用意し置き換えれば良いことになる。\par
+以下一例を挙げる。
+\begin{itemize}
+  \item $\exists Y \forall X p(X,Y)$は、$\forall X p(X,a)$\par
+  $\exists Y$をスコーレム定数$a$で置き換え。
+\end{itemize}
+ここまでの説明を総合すると、命題論理の上位セットである述語論理は最終的には、命題論理式へ落とし込んでその問題を解いて聞く、ということになる。
+\subsubsection{エルブラン定理}
+エルブラン領域（Herbrand universe）とは、述語論理式に現れうる変数を含まない全ての項の集合のことを指す。\par
+エルブラン基底とは、「想定されうる基礎原子式の集合」、すなわちエルブラン領域の要素を引数とする原子式の全体の事を指す。エルブラン領域の各要素を論理式を構成している原子式に割り当てることで、真偽を決定し、その論理式に対する解釈を求めることができる。\par
+以下その例を挙げる。
+\begin{itemize}
+  \item $\{is\_ful(taro), have\_a\_cold(mike)\}$という述語論理式の集合、すんわち節集合が与えられた時、
+  \begin{enumerate}
+    \item エルブラン領域：$\{taro, mike\}$
+    \item エルブラン基底：$\{is\_ful(taro), is\_ful(mike), have\_a\_cold(taro), have\_a\_cold(mike)\}$
+  \end{enumerate}
+\end{itemize}
+加えて、エルブラン基底に対する解釈を「エルブラン解釈」と呼ぶ。任意の有限である節集合$F$に対して、以下のことが言える。
+\begin{itemize}
+  \item $F$が充足不能。
+  \item $F$のエルブラン基底の有限集合で充足不能なものが存在する。
+\end{itemize}
+この性質は「エルブランの定理」と呼ばれている。
+\begin{thm}
+  任意の節集合Sが充足不能なら，その基礎節集合Γの有限部分集合の中に，充足不能なものが存在する
+\end{thm}
 \subsection{論理プログラムについて}
-  \subsubsection{エルブラン領域・基底}
+
   \subsubsection{論理プログラムのクラス区分}
   \subsubsection{確定論理プログラム}
 \subsection{標準論理プログラムについて}
