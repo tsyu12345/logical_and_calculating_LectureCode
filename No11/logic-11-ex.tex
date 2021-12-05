@@ -1,0 +1,75 @@
+\documentclass[dvipdfmx]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+
+\def\NO{11}
+\def\LECTURENAME{論理と計算}
+\begin{document}
+\title{\LECTURENAME{}：第\NO{}回演習問題}
+
+\author{5499000 日大太郎}
+
+\date{}
+\maketitle
+
+\begin{itemize}
+\item Latexを用いて作成し，PDF形式で提出してください
+\end{itemize}
+
+
+\vspace*{\baselineskip}
+
+\begin{enumerate}\setlength{\itemsep}{\baselineskip}
+
+\item 下記の$P, G, \Delta_1$に対し，
+  真理値表を書いて，$P\not\models G$であることを示しなさい．
+
+\[
+\renewcommand{\arraystretch}{1.5}
+\begin{array}{l}
+P\,=\,
+\left\{
+\begin{array}{l}
+  rained\_last\_night\Rightarrow  grass\_is\_wet.\\
+  sprinkler\_was\_on \Rightarrow grass\_is\_wet.\\
+  grass\_is\_wet \Rightarrow shoes\_are\_wet.
+\end{array}
+\right\}\\
+G\,=\,shoes\_are\_wet\\
+\Delta_1\,=\,\{ rained\_last\_night\}\\
+\end{array}
+\]
+
+\item 上記の$P,G,\Delta_1$に対し，$P\cup \Delta_1\models G$であることを示しなさい．
+
+
+\item 次の発想論理プログラム$P$と観測$G$に対する発想的説明を求めなさい．
+\[
+P\,=\,
+\left\{
+\begin{array}{l}
+flies(X)\leftarrow bird(X),not \, abnormal(X).\\
+abnormal(X)\leftarrow  penguin(X).\\
+bird(X)\leftarrow  penguin(X).\\
+bird(X)\leftarrow  sparrow(X).\\
+\end{array}
+\right\},
+\]
+\[
+A\,=\,\{penguin(tweety), sparrow(tweety)\}, G = flies(tweety)
+\]
+
+
+\item 講義資料中の circuit.lp の内容を説明しなさい．
+  加えて，「故障部品数が2つ」とした場合，「どの回路とどの回路がそれぞれどの様に故障しているか」を示しなさい．
+
+\item
+  次の説明に対する発想論理プログラムを書きなさい．
+「自動車はバッテリーが切れても，ガソリンが切れても動かないが，
+ライトが点灯しているのに動かない場合は，ガソリン切れが原因として考えられる．」
+%
+また，観測「車が動かない」に対する発想的説明を求めなさい．
+
+
+\item 質問・コメント等がありましたらご記入ください（採点対象外です）．
+\end{enumerate}
+\end{document}
