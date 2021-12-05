@@ -335,13 +335,64 @@ $not$が追加されたことで、確定論理プログラムのモデルとな
 より具体的に述べると、モデルの候補を仮定し、仮定したモデルにおいて各ルールがセイルつするか否かを考える。その後、”ある手順”に従い確定論理プログラムに変形し、その最小モデルと一致するようなモデルを安定モデルと呼ぶ。では、そのある手順について説明する。\par
 与えられた標準論理プログラムを$P$とし、その原子文の集合$S$を考える。$P$を基礎化し、次の操作を行う。
 \begin{enumerate}
-  \item $not$のついている条件部「$A_{m+1}, ..., A_{n}$」と集合$S$において、$\{A_{m+1}, ..., A_{n}\} \cup S \neq \{\}(すなわち空集合\phi)$でないルールを$P$から除外する。
+  \item $not$のついている条件部「$A_{m+1}, ..., A_{n}$」と集合$S$において、$\{A_{m+1}, ..., A_{n}\} \cap S \neq \{\}(すなわち空集合\phi)$でないルールを$P$から除外する。
   \item 残っている各ルールに対して、$not$が付与されている各原子文を削除する。
 \end{enumerate}
 このようにすることで、基礎化した$P$を確定論理プログラムに変形し、その最小モデル$C_{n}(P^{S})$を求める。$S$と$C_{n}(P^{S})$が一致した時、$S$を安定モデルと呼ぶ。
   \subsubsection{導出アルゴリズム}
-\subsection{解集合プログラミングについて}
+  安定モデルを導出する方法として、エルブラン基底の部分集合をそれぞれ調べていく方法がある。加えて、以下の２性質を利用したアルゴリズムを利用する方法がある。
+  \begin{itemize}
+    \item 標準論理プログラム$P$および、その原子文集合$S_{1}, S_{2}$対して
+    \begin{enumerate}
+      \item $S_{1} \subseteq S_{2} \Rightarrow P^{S_{2}} \subseteq P^{S_{1}}$
+      \item $P^{S_{2}} \subseteq P^{S_{1}} \Rightarrow C_{n}(P^{S_{2}} \subseteq C_{n}(P^{S_{1}})$
+    \end{enumerate}
+    \item 上記より、$P$の安定モデル$X$に対して、以下が成立する。
+    \begin{enumerate}
+      \item $L \subseteq X \Rightarrow X \subseteq C_{n}(P^{L})$
+      \item $X \subseteq \Rightarrow C_{n}(P^{U}) \subseteq X$
+      \item $L \subseteq X \subseteq U \Rightarrow (L \cup C_{n}(P^{U}) \subseteq X \subseteq (U \cap C_{n}(P^{L}))$
+    \end{enumerate}
+  \end{itemize}
+これらの性質（特に一番最後）、を利用して安定モデルの範囲を絞り込むアルゴリズムがある。以下はそのアルゴリズムでPython風の擬似コードである。
+\begin{verbatim}
+    def expand(P, L, U):
+2      while True:
+3        L_org = L
+4        U_org = U
+5        L = L ∪ Cn(P^U_org)
+6        U = U ∪ Cn(P^L_org)
+7        if L == L and U == U_org:
+8           break
+9      return (L, U)
+\end{verbatim}
+\begin{verbatim}
+    def solve(P, L, U):
+2     (L,U) = expand(P,L,U)
+3     if L not ⊆ U:
+4       return None
+5     if L == U:
+6       print(L)
+7     else if a ∈ U-L:
+8       solve(P, L ∪ {a}, U)
+9       solve(P,L,U-{a})
 
+\end{verbatim}
+上記を少し説明する。まず、$L$を空集合\{\}とし、$U$をプログラム$P$中の原子式の集合とする。\par
+このコードは、集合$L$と$U$が同じになるまで繰り返し動作を行う。もし、$L$と$U$が等しければ、その時の$L$を関数expandが安定モデルとして返却し、関数solve内で標準出力している。またもし、$L$が$U$の部分集合で無い時安定モデルは存在しないのでNone値を返却する。\par
+これ関数expandの返り値が上記以外の場合、安定モデルの範囲を$L \subseteq X \subseteq U$、すなわち$(L \cup C_{n}(P^{U}) \subseteq X \subseteq (U \cap C_{n}(P^{L}))$として絞り込み、定数aを含む安定モデル、含まない安定モデルをそれぞれ再帰呼び出しで探索を行う。
+\subsection{解集合プログラミングについて}
+解集合プログラミング（英：Answer set programming）とは「データベース」と「論理プログラム」、「知識表現」、「SAT問題」を組み合わせたプログラミング言語で、論理に基づくプログラミングを行う事ができる。\par
+このプログラムを利用するには、以下の入力を用意する必要がある。
+\begin{itemize}
+  \item 一般拡張選言プログラム + $\alpha$\par
+  このとき、
+  \begin{itemize}
+    \item 項に関数記号が存在しない
+    \item $head$部分のリテラル中の変数および、$body$部分の負のリテラル中の変数が$body$部分の正のリテラルにも出現する。
+  \end{itemize}
+\end{itemize}
+このとき、入力を受けたプログラムは、解集合を返り値として返却する。今回の計算機実験では、この解集合プログラミング言語として、clingoを使用している。
 \section{計算機実験}
 \subsection{実験準備}
   \subsubsection{実験環境}
