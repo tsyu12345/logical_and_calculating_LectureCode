@@ -1,9 +1,9 @@
 \BOOKMARK [1][-]{section.1}{目的}{}% 1
 \BOOKMARK [1][-]{section.2}{計算理論説明}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{推論の概要}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{発想推論の説明}{section.2}% 4
-\BOOKMARK [2][-]{subsection.2.3}{帰納推論の説明}{section.2}% 5
-\BOOKMARK [2][-]{subsection.2.4}{解集合からの学習について}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.2}{発想推論\(abduction\)の説明}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{解集合からの学習について}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{ILAPSシステムの概要}{section.2}% 6
 \BOOKMARK [2][-]{subsection.2.5}{初期のILAPSにおける仮説導出アルゴリズム}{section.2}% 7
 \BOOKMARK [1][-]{section.3}{計算機実験}{}% 8
 \BOOKMARK [2][-]{subsection.3.1}{実験準備}{section.3}% 9
