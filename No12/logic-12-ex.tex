@@ -1,0 +1,78 @@
+\documentclass[dvipdfmx]{jsarticle}
+\usepackage[T1]{fontenc}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{lmodern}
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{here}
+\usepackage{float}
+\usepackage{ascmac}
+\usepackage{url}
+\def\NO{12}
+\def\LECTURENAME{論理と計算}
+\begin{document}
+\title{\LECTURENAME{}：第\NO{}回演習問題}
+
+\author{5419045 高林秀}
+
+\date{}
+\maketitle
+
+\begin{itemize}
+\item Latexを用いて作成し，PDF形式で提出してください
+\end{itemize}
+
+
+\vspace*{\baselineskip}
+
+\begin{enumerate}\setlength{\itemsep}{\baselineskip}
+
+\item 帰納論理プログラミングの問題設定（Logical Settings）の一つである
+  伴意からの学習について，入力と出力を示すと共に，その内容を説明しなさい．
+  \paragraph{解答}
+  伴意からの学習における入力は、正と負２つのクラスに分類されている事例「正例$E^{+}$と負例$E^{-}$」に加え、背景知識$BK$が与えられる。これら３つの入力要素は全て述語論理形式で示されているものとする。このとき、入力として$BK \nvDash E^{+}$背景知識から正例$E^{+}$が論理的に導くことができないものを与える。\par
+  出力として、仮説$H$を求める。この仮説$H$は述語論理形式で示されており、背景知識$BK$にこの$H$を付け加えた時、正例$E^{+}$を導くことができる、あるいは負例$E^{-}$を導くことができない、ような仮説$H$を求める。\par
+  この仮説$H$は、決定木の問題と同様に、パターンの列挙と探索によって機械的に求める事ができる。したがって、その仮説に対して評価関数を使用することで、仮設に対して優先順位をつけていく。
+
+
+\item
+  以下の節を最弱仮説（底節）としたとき，包摂関係によって構成される探索空間に含まれる
+  仮説を5個以上示しなさい．
+  \[
+  east(A):- has\_car(A, B), open(B), long(B), wheel(B,2).
+  \]
+
+\item
+  講義で取り上げた評価関数，Compression Gainについて，その定義が意味するところや，
+  なぜこの定義で仮説が評価できるのかを説明しなさい．
+  \paragraph{解答}
+  Compression Gainの計算式は、「説明される正例の数」-「仮説のリテラル長」-「説明される負例の数」によって求められる。
+  正例の集合を「仮説と例外」に書き換え、もとの正例集合との記述量の差分を計算することで仮説を選択する。このとき、Compression Gainの値が最大の仮説を「適切な仮説」とする。概念を列挙していたものを「仮説と例外」に書き換えたときに、もとの状態からどれだけ小さくまとめられたかによって、その仮説の良し悪しが判断できる。
+
+\item
+  集合被覆アルゴリズムの弱点・欠点について簡単に考察しなさい．
+  \paragraph{解答}
+
+
+\item
+  命題論理学習器との違いに着目した上で，
+  帰納論理プログラミングに適した具体的な応用例を挙げ，
+  その理由を説明しなさい（授業で説明したものは除きます）．
+  \paragraph{解答}
+\begin{itemize}
+  \item 応用例：医療用画像から疾患部分を判定するルールを生成する。（GKSと呼ばれるILPシステムの利用例）
+  \item 理由：求める結果は「診断のルール」を自動的に獲得すること。導出されるルールは、異常なセグメント間の関係性を示すものが望まれるので、GKSによってセグメントの異常性と数値データの関係性のルールを導出する。異常なセグメントの構造関係を示すことにより、疾患画像判定の抽象的なルールを導くことができる。
+  \item 参照元「帰納論理プログラミングの適用方法について」（著）溝口文雄；\url{https://www.jstage.jst.go.jp/article/jjsai/12/5/12_675/_pdf}
+\end{itemize}
+
+
+\item 質問・コメント等がありましたらご記入ください（採点対象外です）．
+
+\end{enumerate}
+\end{document}
