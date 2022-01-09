@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.5.19)  10 JAN 2022 02:18
+This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.5.19)  10 JAN 2022 02:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -588,46 +588,44 @@ Overfull \hbox (24.79622pt too wide) in paragraph at lines 131--132
  []
 
 [4] [5]
+Overfull \hbox (4.78094pt too wide) detected at line 189
+[]
+ []
+
+[6]
 LaTeX Font Info:    Font shape `JT1/mc/b/n' in size <10> not available
-(Font)              Font shape `JT1/mc/bx/n' tried instead on input line 185.
+(Font)              Font shape `JT1/mc/bx/n' tried instead on input line 207.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 185.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 207.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 185.
+(Font)              scaled to size 9.60999pt on input line 207.
 LaTeX Font Info:    Font shape `JY1/mc/b/n' in size <10> not available
-(Font)              Font shape `JY1/mc/bx/n' tried instead on input line 185.
+(Font)              Font shape `JY1/mc/bx/n' tried instead on input line 207.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 185.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 207.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 185.
- [6]
-Overfull \hbox (15.79572pt too wide) in paragraph at lines 216--217
+(Font)              scaled to size 9.60999pt on input line 207.
+
+Overfull \hbox (15.79572pt too wide) in paragraph at lines 234--235
 []\T1/lmr/m/n/10 GoogleDrive:[]$\T1/lmtt/m/n/10 https : / / drive . google . co
 m / drive / folders / 1YZg84-[]-[]BFR0XRyXArL1TTY5m5xGxITxG ?
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 217--218
+Underfull \hbox (badness 10000) in paragraph at lines 235--236
 []\T1/lmr/m/n/10 GitHub:[]$\T1/lmtt/m/n/10 https : / / github . com / tsyu12345
  / logical _ and _ calculating _ LectureCode / tree /
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 219.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 237.
 [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 219.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 237.
  (./s5419045-report3.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 219.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 219.
-
-
-Package rerunfilecheck Warning: File `s5419045-report3.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `s5419045-report3.out':
-(rerunfilecheck)             Before: 54CF270A6737A6411926E47E2426C0B0;724
-(rerunfilecheck)             After:  DA66AD58F409F554AB71BE0090E0A576;724.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 219.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 237.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 237.
+Package rerunfilecheck Info: File `s5419045-report3.out' has not changed.
+(rerunfilecheck)             Checksum: DA66AD58F409F554AB71BE0090E0A576;724.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 237.
  ) 
 Here is how much of TeX's memory you used:
  7482 strings out of 482863
@@ -636,6 +634,6 @@ Here is how much of TeX's memory you used:
  22598 multiletter control sequences out of 15000+600000
  595174 words of font info for 116 fonts, out of 8000000 for 9000
  269 hyphenation exceptions out of 8191
- 37i,15n,29p,615b,382s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,15n,29p,615b,424s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on s5419045-report3.dvi (7 pages, 32960 bytes).
+Output written on s5419045-report3.dvi (7 pages, 34920 bytes).

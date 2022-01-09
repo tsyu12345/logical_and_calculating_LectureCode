@@ -177,6 +177,28 @@ $\Delta$を「発想的説明」と呼ぶことがある。加えて、$P \cup \
   \item Induction of Stable Models
   \item Learning from Answer sets(解集合からの学習)
 \end{itemize}
+\paragraph{Cautious Induction}問題設定は下記。
+\begin{itemize}
+  \item 入力：背景知識$B$、仮説空間$S_M$、正例の集合$E^+$、負例の集合$E^-$
+  \item 出力：仮説$H$\par
+  ※$H$は以下の条件を満たす。
+  \begin{flalign*}
+      & (1).H \subseteq S_M \cdot Hは仮説空間&\\
+      & (2).AS(B \cup H) \neq \phi \cdot Bと併せた際に解集合をもつ&\\
+      & (3).\forall A \in AP(B \cup H) [ E^+ \subseteq A, E^- \cap A = \phi ] & \cdot すべての解集合は正例のみを含み負例を含まない\\
+  \end{flalign*}
+\end{itemize}
+\paragraph{Brave Induction}問題設定は下記
+\begin{itemize}
+  \item 入力(Cautious Inductionと同一)：背景知識$B$、仮説空間$S_M$、正例の集合$E^+$、負例の集合$E^-$
+  \item 出力：仮説$H$\par
+  ※$H$は以下の条件を満たす。
+  \begin{flalign*}
+      & (1).H \subseteq S_M \cdot Hは仮説空間&\\
+      & (3).\exists A \in AP(B \cup H) [ E^+ \subseteq A, E^- \cap A = \phi ] & \cdot 正例のみを含み負例を含まない解集合が存在する\\
+  \end{flalign*}
+\end{itemize}
+以上の２つの問題設定における違いは、出力される仮説の条件(3)にある。Cautious Inductionでは、$A$は全称限量され解集合すべてが条件を満たさなければならない。Brave Inductionでは存在限量され、一部の解集合にて条件を満たせば良い。
 
 問題設定は下記。
 \begin{itemize}
@@ -186,11 +208,7 @@ $\Delta$を「発想的説明」と呼ぶことがある。加えて、$P \cup \
     \item 負例$E^-$:部分解釈の集合
   \end{itemize}
   \item 出力：仮説$H$\par
-  ※すべて述語論理で表現。$H$は以下の条件を満たす。
-  \begin{flalign*}
-      & (1).BK \cup H \models E^+ &\\
-      & (2).BK \cup H \nvDash E^- &\\
-  \end{flalign*}
+
 \end{itemize}
 
 \subsection{ILASPシステムの概要}
