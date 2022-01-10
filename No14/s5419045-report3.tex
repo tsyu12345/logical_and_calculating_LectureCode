@@ -346,15 +346,24 @@ hamilton\{X,Y\}.lasの内容の説明をする。
 hamilton\{X,Y\}.lasに対して、ILASPを実行するにはシェル上で「./ILASP --version=3 ./hamiltonX.las」打ち込む。
 以下は実行時の結果。
 \begin{verbatim}
-..$ ./ILASP --version=3 ./hamiltonX.las
+..$ ./ILASP --version=4 ./hamiltonX.las
 %% score = 0
 Pre-processing  : 0.006s
 Solve time      : 0.004s
 Total           : 0.009s
-
-..$
 \end{verbatim}
 「score = 0」とあるが、これは得られた仮説がないことを示す。
+このときのデバック情報は下記
+\begin{verbatim}
+  %% Iteration 1
+  %%
+  %% Found Hypothesis:
+  %% |H| = 0
+  %% expected penalty = 0
+  %% unexpected penalty = 0
+  %% score = 0
+  %% UncoveredEGS = {  }
+\end{verbatim}
 
 
 
