@@ -199,17 +199,26 @@ $\Delta$を「発想的説明」と呼ぶことがある。加えて、$P \cup \
   \end{flalign*}
 \end{itemize}
 以上の２つの問題設定における違いは、出力される仮説の条件(3)にある。Cautious Inductionでは、$A$は全称限量され解集合すべてが条件を満たさなければならない。Brave Inductionでは存在限量され、一部の解集合にて条件を満たせば良い。
-
+\paragraph{Induction of stable models}複数の解釈からの学習を行うには、Induction of stable modelsと呼ばれる問題設定を使用する。基礎アトム（基礎原子式）を$e$とすると、部分解釈は$e^{inc}, e^{exc}$で示され、それぞれ以下を示す。
+\begin{itemize}
+  \item $e^{inc}$:解釈に含まれるべきアトムの集合
+  \item $e^{exc}$:解釈に含まれるべきではないアトムの集合
+\end{itemize}
+このとき、ある解釈$I$が条件「$e^{inc} \subseteq I, e^{exc} \cap I = \phi$」を満たすとき、$I$は$e$を拡大する、と言う。
 問題設定は下記。
 \begin{itemize}
-  \item 入力：正例$E^+$、負例$E^-$、関連知識$BK$ \par
-  \begin{itemize}
-    \item 正例$E^+$:部分解釈の集合
-    \item 負例$E^-$:部分解釈の集合
-  \end{itemize}
+  \item 入力：背景知識$B$、仮説空間$S_M$、部分解釈集合$E$
   \item 出力：仮説$H$\par
-
+  ※$H$は以下の条件を満たす。
+  \begin{flalign*}
+      & (1).H \subseteq S_M \cdot Hは仮説空間&\\
+      & (3).\forall <e^{inc}, e^{exc}> \in E, \exists A \in AP(B \cup H)[e^{inc} \subseteq A, e^{exc} \cap A = \phi]\\
+  \end{flalign*}
+上記式は、事例となる各部分解釈に対し、それぞれ拡大する任意の解集合が存在することを示す。
 \end{itemize}
+なお、Brave Inductionとの違いとして、Brave Inductionはすべての事例を説明するのが１つの解集合であるのに対し、Induction of stable modelsは事例ごとにそれを説明する解集合は異なっている。\par
+\paragraph{解集合からの学習（Learning from Answer Sets）}
+最後に後述するILASPシステムの基本的な問題設定とされる解集合からの学習（Learning from Answer Sets）について述べる。問題設定は下記。
 
 \subsection{ILASPシステムの概要}
 \subsection{初期のILAPSにおける仮説導出アルゴリズム}
