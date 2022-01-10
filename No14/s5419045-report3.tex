@@ -294,7 +294,20 @@ ILASPシステムはその特性から、一般的なゲームや強化学習な
 したがって、変形後は「\{voilating :- e(p, neg), not e(q, neg), not e(t, neg).\}」となる。\par
 以上が解集合プログラミングへの変形の概要である。
 \subsection{初期のILAPSにおける仮説導出アルゴリズム}
-
+以下にILASPのアルゴリズムを擬似コード(JavaScript風)で示す。各文字は、先述したものに対応する。
+\begin{verbatim}
+0  function ILASP(T) {
+1    let solutions = [];
+2    for(let n = 0; solutions.length === 0; n++) {
+3      let vs = AS(T^n_meta ∪ {← not violating; ex(neg)});
+4      let ps = AS(T^n_meta ∪ {constraint(meta^-1(V)): V ∈ vs});
+5      solutions = {meta^-1(A) : A ∈ ps}
+6    }
+7    return solutions
+8  }
+\end{verbatim}
+流れを説明する。初めに、3、４行目の処理で仮説長nのvio\_sol(T)を計算している。具体的には、$T^{n}_{meta} \cap \{:-not violating., ex(neg)\}$の解集合を計算している。このとき、制約として$pos\_ sol(T)　\diagdown vio\_ sol(T)$を計算している。また、「meta\^ -1」は変形前の状態に戻すことを示す。「constraint(meta\^ -1(V))」では、violatingを導出する、各解集合$V$を制約に変形している。\par
+以上の処理を解が見つかるまで、仮説長nをインクリメントしながら行う。
 \section{計算機実験}
 \subsection{実験準備}
   \subsubsection{実験環境}
@@ -308,6 +321,12 @@ ILASPシステムはその特性から、一般的なゲームや強化学習な
     \item 仮想RAM：4GB
     \item clingo version : 5.4.0
   \end{itemize}
+\subsection{問題説明}
+\subsubsection{数独}
+
+
+
+
 
 \section{巻末資料}
   本稿で使用した画像、プログラムコード等はすべて以下のリンク先に掲載している。必要に応じてご覧頂きたい。
