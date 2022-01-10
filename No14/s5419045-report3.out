@@ -4,7 +4,7 @@
 \BOOKMARK [2][-]{subsection.2.2}{発想推論\(abduction\)の説明}{section.2}% 4
 \BOOKMARK [2][-]{subsection.2.3}{帰納推論の説明}{section.2}% 5
 \BOOKMARK [2][-]{subsection.2.4}{解集合からの学習}{section.2}% 6
-\BOOKMARK [2][-]{subsection.2.5}{ILASPシステムの概要}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.5}{ILASPシステム（Inductive Learning of Answer Set Programs）}{section.2}% 7
 \BOOKMARK [2][-]{subsection.2.6}{初期のILAPSにおける仮説導出アルゴリズム}{section.2}% 8
 \BOOKMARK [1][-]{section.3}{計算機実験}{}% 9
 \BOOKMARK [2][-]{subsection.3.1}{実験準備}{section.3}% 10

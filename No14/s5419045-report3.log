@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.5.19)  10 JAN 2022 09:41
+This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.5.19)  10 JAN 2022 11:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -564,63 +564,75 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 \tf@toc=\write4
 \openout4 = `s5419045-report3.toc'.
 
-LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 39.
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 39.
  [1
 
 ]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 4
-7.
+0.
 
 (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [2] [3]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-15.
+)
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
+0.
 
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Overfull \hbox (24.79622pt too wide) in paragraph at lines 131--132
+Overfull \hbox (35.7123pt too wide) in paragraph at lines 40--41
+[]\JY1/mc/m/n/10 命題論理に関するレポ ート ： []$\T1/lmtt/m/n/10 https : / / dr
+ive . google . com / file / d / 1p _ jezNTWJEisTFzSJxPcckGNfjLirWUJ /
+ []
+
+
+Overfull \hbox (36.2123pt too wide) in paragraph at lines 41--42
+[]\JY1/mc/m/n/10 述語論理に関するレポ ート ： []$\T1/lmtt/m/n/10 https : / / dr
+ive . google . com / file / d / 1-[]WFu3JJW4gAdWUn3gqoyokSYy8N1S1hr /
+ []
+
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 43.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 43.
+[2] [3]
+Overfull \hbox (24.79622pt too wide) in paragraph at lines 135--136
 [][]
  []
 
 [4] [5]
-Overfull \hbox (4.78094pt too wide) detected at line 189
+Overfull \hbox (4.78094pt too wide) detected at line 186
 []
  []
 
-[6] [7]
-Overfull \hbox (15.79572pt too wide) in paragraph at lines 243--244
+[6] [7] [8] [9]
+Overfull \hbox (15.79572pt too wide) in paragraph at lines 315--316
 []\T1/lmr/m/n/10 GoogleDrive:[]$\T1/lmtt/m/n/10 https : / / drive . google . co
 m / drive / folders / 1YZg84-[]-[]BFR0XRyXArL1TTY5m5xGxITxG ?
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 244--245
+Underfull \hbox (badness 10000) in paragraph at lines 316--317
 []\T1/lmr/m/n/10 GitHub:[]$\T1/lmtt/m/n/10 https : / / github . com / tsyu12345
  / logical _ and _ calculating _ LectureCode / tree /
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 246.
-[8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 246.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 318.
+[10]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 318.
  (./s5419045-report3.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 246.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 246.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 318.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 318.
 Package rerunfilecheck Info: File `s5419045-report3.out' has not changed.
-(rerunfilecheck)             Checksum: DA66AD58F409F554AB71BE0090E0A576;724.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 246.
+(rerunfilecheck)             Checksum: D04FE0055175078284FE2047A115B83B;762.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 318.
  ) 
 Here is how much of TeX's memory you used:
  7478 strings out of 482863
  110246 string characters out of 5959218
- 376966 words of memory out of 5000000
+ 378004 words of memory out of 5000000
  22595 multiletter control sequences out of 15000+600000
  592179 words of font info for 115 fonts, out of 8000000 for 9000
  269 hyphenation exceptions out of 8191
- 37i,15n,29p,615b,380s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,15n,29p,615b,391s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on s5419045-report3.dvi (8 pages, 37100 bytes).
+Output written on s5419045-report3.dvi (10 pages, 50484 bytes).

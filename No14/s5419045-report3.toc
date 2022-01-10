@@ -1,27 +1,29 @@
 \contentsline {section}{\numberline {1}目的}{1}{section.1}%
-\contentsline {section}{\numberline {2}計算理論説明}{1}{section.2}%
+\contentsline {section}{\numberline {2}計算理論説明}{2}{section.2}%
 \contentsline {subsection}{\numberline {2.1}推論の概要}{2}{subsection.2.1}%
 \contentsline {paragraph}{演繹推論}{2}{section*.2}%
-\contentsline {paragraph}{帰納推論}{2}{section*.3}%
+\contentsline {paragraph}{帰納推論}{3}{section*.3}%
 \contentsline {paragraph}{発想推論}{3}{section*.4}%
 \contentsline {paragraph}{類推推論}{3}{section*.5}%
 \contentsline {subsection}{\numberline {2.2}発想推論(abduction)の説明}{3}{subsection.2.2}%
 \contentsline {paragraph}{形式的定義}{3}{section*.6}%
-\contentsline {paragraph}{発想推論の注意すべき点}{3}{section*.7}%
+\contentsline {paragraph}{発想推論の注意すべき点}{4}{section*.7}%
 \contentsline {subsection}{\numberline {2.3}帰納推論の説明}{4}{subsection.2.3}%
 \contentsline {paragraph}{帰納学習の例}{5}{section*.8}%
 \contentsline {subsubsection}{\numberline {2.3.1}帰納論理プログラミング（Inductive logic programming）}{5}{subsubsection.2.3.1}%
 \contentsline {paragraph}{問題設定}{5}{section*.9}%
-\contentsline {paragraph}{記述長最小原理}{6}{section*.10}%
-\contentsline {paragraph}{補足}{6}{section*.11}%
+\contentsline {paragraph}{補足}{6}{section*.10}%
 \contentsline {subsection}{\numberline {2.4}解集合からの学習}{6}{subsection.2.4}%
-\contentsline {paragraph}{Cautious Induction}{6}{section*.12}%
-\contentsline {paragraph}{Brave Induction}{6}{section*.13}%
-\contentsline {paragraph}{Induction of stable models}{7}{section*.14}%
-\contentsline {paragraph}{解集合からの学習（Learning from Answer Sets）}{7}{section*.15}%
-\contentsline {subsection}{\numberline {2.5}ILASPシステムの概要}{7}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}初期のILAPSにおける仮説導出アルゴリズム}{7}{subsection.2.6}%
-\contentsline {section}{\numberline {3}計算機実験}{7}{section.3}%
-\contentsline {subsection}{\numberline {3.1}実験準備}{7}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}実験環境}{7}{subsubsection.3.1.1}%
-\contentsline {section}{\numberline {4}巻末資料}{8}{section.4}%
+\contentsline {paragraph}{Cautious Induction}{6}{section*.11}%
+\contentsline {paragraph}{Brave Induction}{6}{section*.12}%
+\contentsline {paragraph}{Induction of stable models}{7}{section*.13}%
+\contentsline {paragraph}{解集合からの学習（Learning from Answer Sets）}{7}{section*.14}%
+\contentsline {subsubsection}{\numberline {2.4.1}仮説の評価関数}{8}{subsubsection.2.4.1}%
+\contentsline {paragraph}{記述長最小原理}{8}{section*.15}%
+\contentsline {subsection}{\numberline {2.5}ILASPシステム（Inductive Learning of Answer Set Programs）}{8}{subsection.2.5}%
+\contentsline {paragraph}{解集合プログラミングへの変換}{9}{section*.16}%
+\contentsline {subsection}{\numberline {2.6}初期のILAPSにおける仮説導出アルゴリズム}{10}{subsection.2.6}%
+\contentsline {section}{\numberline {3}計算機実験}{10}{section.3}%
+\contentsline {subsection}{\numberline {3.1}実験準備}{10}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}実験環境}{10}{subsubsection.3.1.1}%
+\contentsline {section}{\numberline {4}巻末資料}{10}{section.4}%

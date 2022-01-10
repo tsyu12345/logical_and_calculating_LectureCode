@@ -35,7 +35,11 @@
 本稿は今年度論理と計算2の第３回目の課題研究として、ILASP システムを用いた宣言的問題解決を通じ，解集合プログラムに基づく帰納推論に関する学修内容を振り返ることを目的とする。必要な計算理論の説明を通して学習内容の復習を図るとともに、本稿後半部に記載する問題の計算機実験を通して、内容の定着を図るものとする。\par
 
 \section{計算理論説明}
-この章では、今回の計算機実験に使用した各計算理論の解説を行う。
+この章では、今回の計算機実験に使用した各計算理論の解説を行う。前提となる論理記号等の定義は、下記レポートを参照されたい。
+\begin{itemize}
+  \item 命題論理に関するレポート：\url{https://drive.google.com/file/d/1p_jezNTWJEisTFzSJxPcckGNfjLirWUJ/view?usp=sharing}
+  \item 述語論理に関するレポート：\url{https://drive.google.com/file/d/1-WFu3JJW4gAdWUn3gqoyokSYy8N1S1hr/view?usp=sharing}
+\end{itemize}
 \subsection{推論の概要}
 推論とは、デジタル大辞泉には以下のように記されている。
 \begin{quote}
@@ -159,13 +163,6 @@ $\Delta$を「発想的説明」と呼ぶことがある。加えて、$P \cup \
       & (2).BK \cup H \nvDash E^- &\\
   \end{flalign*}
 \end{itemize}
-またこのとき、仮説の評価関数として「記述長最小原理」など複数の評価関数が提案されている。
-\paragraph{記述長最小原理}記述長最小原理は、正例を「仮説＋例外」の形式置き換えて、記述量の差を計算し仮説を評価する。この値が最大の仮説が良い仮説とされ、順位付けされる。
-近似式は下記。
-\begin{align*}
-  Compression Gain(評価値) &= 説明される正例数-仮説のリテラル長-説明される負例の数 \\
-  &= |概念の外延表記|-|概念の内包表記|-|例外表現|
-\end{align*}
 
 \paragraph{補足}数学的帰納法や、構造的帰納法などの手法は、名称に帰納とついているが、手法としては演繹に当たる。
 \subsection{解集合からの学習}
@@ -212,15 +209,90 @@ $\Delta$を「発想的説明」と呼ぶことがある。加えて、$P \cup \
   ※$H$は以下の条件を満たす。
   \begin{flalign*}
       & (1).H \subseteq S_M \cdot Hは仮説空間&\\
-      & (3).\forall <e^{inc}, e^{exc}> \in E, \exists A \in AP(B \cup H)[e^{inc} \subseteq A, e^{exc} \cap A = \phi]\\
+      & (2).\forall <e^{inc}, e^{exc}> \in E, \exists A \in AP(B \cup H)[e^{inc} \subseteq A, e^{exc} \cap A = \phi]\\
   \end{flalign*}
 上記式は、事例となる各部分解釈に対し、それぞれ拡大する任意の解集合が存在することを示す。
 \end{itemize}
 なお、Brave Inductionとの違いとして、Brave Inductionはすべての事例を説明するのが１つの解集合であるのに対し、Induction of stable modelsは事例ごとにそれを説明する解集合は異なっている。\par
 \paragraph{解集合からの学習（Learning from Answer Sets）}
 最後に後述するILASPシステムの基本的な問題設定とされる解集合からの学習（Learning from Answer Sets）について述べる。問題設定は下記。
+\begin{itemize}
+  \item 入力：背景知識$B$、仮説空間$S_M$、部分解釈集合$E^+ ,E^-$
+  ※Induction of Stable Modelsに負例の部分解釈集合を追加する。
+  \item 出力：仮説$H$\par
+  ※$H$は以下の条件を満たす。
+  \begin{flalign*}
+      & (1).H \subseteq S_M \cdot Hは仮説空間&\\
+      & (2).\forall <e^{inc}, e^{exc}> \in E^+ , \exists A \in AP(B \cup H)[e^{inc} \subseteq A, e^{exc} \cap A = \phi]\\
+      & (3).\forall <e^{inc}, e^{exc}> \in E^- , \nexists A \in AP(B \cup H)[e^{inc} \subseteq A, e^{exc} \cap A = \phi]\\
+  \end{flalign*}
+  (2)は、各部分解釈に対し、それぞれその部分解釈を拡大する解集合が存在することを示す式である。(3)は、負例となっている各部分解釈に対し、その部分解釈を拡大する解集合が存在しないことを示す。
+\end{itemize}
+\subsubsection{仮説の評価関数}
+仮説の評価関数として「記述長最小原理」など複数の評価関数が提案されている。
+\paragraph{記述長最小原理}記述長最小原理は、正例を「仮説＋例外」の形式置き換えて、記述量の差を計算し仮説を評価する。この値が最大の仮説が良い仮説とされ、順位付けされる。
+近似式は下記。
+\begin{align*}
+  Compression Gain(評価値) &= 説明される正例数-仮説のリテラル長-説明される負例の数 \\
+  &= |概念の外延表記|-|概念の内包表記|-|例外表現|
+\end{align*}
+解集合からの学習における仮説の長さは、仮説を構成するリテラル数で決定される。すなわち各ルールを構成するリテラル数の総和となる。例として、\{q :- notr., r :- not q.\}という仮説が与えられたとする。この仮説に含まれるリテラル数の総和は、2+2 = 4となる。\par
+では、仮説をどのように導出するのかについて述べる。\par
+まず、以下のように記号を定める。
+\begin{itemize}
+  \item Positive Solution:背景知識とともに各正例を説明する仮説、ルール集合。\par
+  条件：$\forall <e^{inc}, e^{exc}> \in E^+ , \exists A \in AP(B \cup H)[e^{inc} \subseteq A, e^{exc} \cap A = \phi]$を満たすこと。
+  \item Violating Solution:負例も説明する仮説、ルール集合。\par
+  条件：$\forall <e^{inc}, e^{exc}> \in E^+ , \exists A \in AP(B \cup H)[e^{inc} \subseteq A, e^{exc} \cap A = \phi] \wedge \exists <e^{inc}, e^{exc}> \in E^- , \nexists A \in AP(B \cup H)[e^{inc} \subseteq A, e^{exc} \cap A = \phi]$
+\end{itemize}
+このとき、Positive Solutionの集合を$pos_sol(T)$Violating Solutionの集合を$vio_sol(T)$と表記する。$T$は入力の集合$T = <B, S_M, E^+, E->$を示す。\par
+そして、求める仮説$H$は、$pos_sol(T)、vio_sol(T)$のうちで、前述した記述長が最小のものである必要がある。したがって、仮説空間$S_M$の部分集合を1つずつ調べていき、記述長が最小の仮説を取り出せば良いことになる。しかし、部分集合の大きさは全部で、$2^{|S_M|}$とルール集合の大きさ次第で指数関数的に増加するので、計算量として現実的とは言えない。\par
+この問題を解決するため、後述するILASPシステムでは、設定された帰納推論の問題を解集合プログラミングへ変換して計算している。より具体的には、前回のレポートの実験で使用したSATソルバーであるclingoを使用して、問題を解いている。
+\subsection{ILASPシステム（Inductive Learning of Answer Set Programs）}
+論理ベース、すなわち論理プログラミングに基づいた機械学習システムの構築を目的としたシステムが、ILASPシステムである。公式サイト\url{https://ilasp.com/?no_animation}には以下のように記されている。
+\begin{quote}
+  ＜原文＞\par
+  INTERPRETABILITY:The learned knowledge can be translated into English, meaning that it can be explained to users and verified or corrected where necessary.\par
+  USE OF EXISTING KNOWLEDGE:Logic-based systems do not need to learn everything from scratch, and can instead start from an existing knowledge base, containing anything known before the learning starts or even previously learned rules.\par
+  GENERALISATION:Logic-based systems can generalise from very few examples, making it possible to learn complex knowledge without needing large datasets.\par
 
-\subsection{ILASPシステムの概要}
+  ＜訳文＞\par
+  インタープリタビリティ：学習した知識を英語に翻訳し、ユーザーに説明し、必要に応じて検証・修正することができる。\par
+  既存の知識の利用：論理ベースのシステムは、すべてを一から学習する必要がなく、学習開始前に知っていたことや、以前に学習したルールなどを含む既存の知識ベースから学習を開始することができる。\par
+  一般化：ロジックベースのシステムは、非常に少ない例から一般化することができるため、大規模なデータセットを必要とせずに複雑な知識を学習することができる。\par
+\end{quote}
+ILASPシステムはその特性から、一般的なゲームや強化学習などに応用されている。また問題設定に関して、各事例に対する背景知識やノイズの許容、弱い制約の学習ができるといった拡張ができる。各事例に対する背景知識とは具体的に述べると、これまでの部分解釈集合$<e^{inc}, e^{exc}>$を$<e^{inc}, e^{exc}, e^{ctx}>$に拡張できることを指す。$e^{ctx}$は、弱い制約を含まない解集合プログラミングのことである。これまでの背景知識$B$に加え、この$e^{ctx}$と併せたときの解集合を考えている。
+\begin{itemize}
+  \item $\forall <e^{inc}, e^{exc}, e^{ctx}> \in E^+ , \exists A \in AP(B \cup H \cup e^{ctx})[e^{inc} \subseteq A, e^{exc} \cap A = \phi]$
+  \item $\forall <e^{inc}, e^{exc}, e^{ctx}> \in E^- , \nexists A \in AP(B \cup H \cup e^{ctx})[e^{inc} \subseteq A, e^{exc} \cap A = \phi]$
+\end{itemize}
+また、ノイズの許容とは、各事例に対してペナルティとなる値（コスト）を設定することを指す。このコストは、条件を満たさない事例に付与されるペナルティの総和の値となる。
+\paragraph{解集合プログラミングへの変換}
+先述したように、ILASPシステムでは、設定された帰納推論の問題を解集合プログラミングへ変換して計算している。背景知識、仮説、事例をそれぞれ解集合プログラミングの形式へ変換することで、SATソルバーであるclingoを利用できるようにしている。\par
+具体的には、入力である「$B, S_M, E^+, E^-$」を変形する。
+\begin{itemize}
+  \item B = \{q :- r\}
+  \item E+ = \{<\{p,q\}, \{r,s\}>, <\{q\}, \{\}>\}
+  \item E- = \{<\{p\}, \{q, t\}>\}
+  \item SM = \{p., q :- r, not s.\}
+\end{itemize}
+このとき得られた仮説、ルール集合を$T^{n}_{meta}$と示す。\par
+まず背景知識$B$を変形する。各ルールに対し、ルール中のアトム（原子式）$A$を$e(A, X)$へ置換し、ルール本体部に$ex(X)$を追加した新たなルールを生成する。すると変形後は「q(q, X):- e(r,X), ex(X)」となる。\par
+次に、仮説空間の変形を行う。固有の識別子”id”を持つルールに対し、ルール中の各アトム$A$を$e(A, X)$へ置換し、ルール本体部に$active(id), ex(X)$を追加した新たなルールを生成する。また、idを持つルール$R$に対してその長さ$|R|$を示すlength(id, |R|)を作成する。すると変形後は「e(p,X):- active(h1), ex(X)., length(h1,1)., e(q,X):- e(s,X), active(h2), ex(X)., lenght(h2,3)」となる。\par
+次に、仮説長を$n$に限定するための補助ルール「n \# sum \{ active(R) = X : length(R, X) \} n.」を生成する。\par
+次に、正例の変形を行う。識別子がidである正例$<e^{inc}, e^{exc}>$に対し、次の３つのルールを生成する。
+\begin{enumerate}
+  \item ex(id)
+  \item :- not converted(id).
+  \item ルール頭部はconverted(id),本体部は$e^{inc}$内の各アトム$A$に対するe(A, id)と$e^{exc}$内の各アトム$B$に対するnot e(B, id)の連言
+\end{enumerate}
+変形後は、「\{ex(pos1).,:- not covered(pos1).,covered(pos1):- e(p, pos1), e(q, pos1), not e(r, pos1), not e(s, pos1)., ex(pos2).,:- not covered(pos2).,covered(pos2):- e(q, pos2). \}」となる。
+最後に負例の変形だが、各負例$<e^{inc}, e^{exc}>$に対し、次のルールを１つ生成する。
+\begin{itemize}
+  \item 頭部はvoilating,本体部は$e^inc$内の各アトムに対するe(A, neg)と$e^{exc}$内の各アトムに対するnot e(B,neg)の連言。
+\end{itemize}
+したがって、変形後は「\{voilating :- e(p, neg), not e(q, neg), not e(t, neg).\}」となる。\par
+以上が解集合プログラミングへの変形の概要である。
 \subsection{初期のILAPSにおける仮説導出アルゴリズム}
 
 \section{計算機実験}
