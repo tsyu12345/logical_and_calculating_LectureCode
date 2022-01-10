@@ -319,10 +319,46 @@ ILASPシステムはその特性から、一般的なゲームや強化学習な
     \item GPU：Nvidia Geforce RTX2070 OC @ 8GB
     \item ホストRAM：16GB
     \item 仮想RAM：4GB
-    \item clingo version : 5.4.0
+    \item ILASP version : 4.1.2
   \end{itemize}
+  なお、ILASP環境は下記URLより圧縮ファイルをダウンロードし、任意のフォルダに展開して作成した。
+  \begin{itemize}
+    \item GitHub:\url{https://github.com/ilaspltd/ILASP-releases/releases}
+  \end{itemize}
+  実行時は、ダウンロードしたものを展開したディレクトリ（ILASPがあるディレクトリ）に移動し「./ILASP ....」コマンドを使用して実行する。
 \subsection{問題説明}
-\subsubsection{数独}
+各設問ごとの問題を以下に示す。
+\subsubsection{ハミルトン経路}
+\begin{enumerate}
+  \item 「ハミルトン閉路」を表す解集合プログラムを求める問題に対する表現とその詳細な説明（配布資料：hamilton\{X,Y\}.las）
+  \item 配布資料：hamilton\{X,Y\}.las から得られる結果（プログラム）の詳細な説明．※併せて，具体的な実行コマンドと，実際に得られる結果，計算時間等も示すこと．
+
+\end{enumerate}
+\subsection{結果と考察}
+hamilton\{X,Y\}.lasの内容の説明をする。
+次に、hamilton\{X,Y\}.lasの仮説空間の大きさを示す。
+\begin{verbatim}
+  ..$ wc hamiltonX.las
+  104  672 3898 hamiltonX.las
+  ..$  wc hamiltonY.las
+  200  1496 19656 hamiltonY.las
+\end{verbatim}
+hamilton\{X,Y\}.lasに対して、ILASPを実行するにはシェル上で「./ILASP --version=3 ./hamiltonX.las」打ち込む。
+以下は実行時の結果。
+\begin{verbatim}
+..$ ./ILASP --version=3 ./hamiltonX.las
+%% score = 0
+Pre-processing  : 0.006s
+Solve time      : 0.004s
+Total           : 0.009s
+
+..$
+\end{verbatim}
+「score = 0」とあるが、これは得られた仮説がないことを示す。
+
+
+
+
 
 
 

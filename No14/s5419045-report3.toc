@@ -27,5 +27,6 @@
 \contentsline {subsection}{\numberline {3.1}実験準備}{10}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}実験環境}{10}{subsubsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.2}問題説明}{11}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}数独}{11}{subsubsection.3.2.1}%
-\contentsline {section}{\numberline {4}巻末資料}{11}{section.4}%
+\contentsline {subsubsection}{\numberline {3.2.1}ハミルトン経路}{11}{subsubsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.3}結果と考察}{11}{subsection.3.3}%
+\contentsline {section}{\numberline {4}巻末資料}{12}{section.4}%
